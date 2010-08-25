@@ -15,6 +15,7 @@ var translations =
 	"hits":"Hits:&#009;",
 	"hymnnumber":"Hymnnumber:&#009;",
 	"hymntitle":"Title:&#009;",
+	"category":"Category:&#009;",
 	"melody":"Melody",
 	"downloadmelody":"Download melody",
 	"about":"About",

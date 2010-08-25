@@ -15,6 +15,7 @@ var translations =
 	"hits":"Träffar:&#009;",
 	"hymnnumber":"Psalm:&#009;",
 	"hymntitle":"Titel:&#009;",
+	"category":"Kategori:&#009;",
 	"melody":"Melodi",
 	"downloadmelody":"Ladda ner melodi",
 	"about":"Om",

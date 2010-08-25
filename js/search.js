@@ -7,7 +7,27 @@ function presentResults(hymn)
 	{
 		var xml	= new DOMParser().parseFromString(new XMLSerializer().serializeToString(hymn),
 												  "text/xml");
-		alert(xml);
+		var xsl	= loadXMLDoc("xml/hymn.xsl");
+		
+		var searchresults	= document.getElementById("searchresults");
+		// Code for IE
+		if (window.ActiveXObject)
+		{
+			ex	= xml.transformNode(xsl);
+			searchresults.innerHTML	= ex + searchresults.innerHTML;
+		}
+		// Code for Mozilla, Firefox, Opera, etc.
+		else if (document.implementation && document.implementation.createDocument)
+		{
+			xsltProcessor	= new XSLTProcessor();
+			xsltProcessor.importStylesheet(xsl);
+			resultDocument	= xsltProcessor.transformToFragment(xml, document);
+			alert(searchresults.childNodes[1]);
+			searchresults.appendChild(resultDocument);
+		}
+		
+		jsI18n.processPage();
+		showElement("searchresults", true);
 	}
 }
 

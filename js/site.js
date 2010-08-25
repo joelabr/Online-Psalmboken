@@ -80,7 +80,7 @@ function toggleVisibility(id)
 				[0]	- Element ID
 				[1]	- Show (bool)
 */
-function showResults(id, show)
+function showElement(id, show)
 {
 	var id	= document.getElementById(id);
 	
