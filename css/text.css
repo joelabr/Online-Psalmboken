@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* Text CSS Document */
+
+body
+{
+	color: #353535;
+	font-family: "Crimson Text", Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	line-height: 1;
+}
+
+footer
+{
+	color: #858585;
+}
+
+a
+{
+	color: #000000;
+}
+
+a:hover
+{
+	color: #C80815;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: #C80815;
+	font-family: "Neuton";
+	font-weight: normal;
+	margin-bottom: 0.25em;
+}
+
+h1
+{
+	font-size: 2.5em;
+}
+
+h2
+{
+	font-size: 2em;
+}
+
+h3
+{
+	font-size: 1.875em;
+}
+
+h4
+{
+	font-size: 1.75em;
+}
+
+h5
+{
+	font-size: 1.625em;
+}
+
+h6
+{
+	font-size: 1.438em;
+}
+
+p
+{
+	font-size: 1.125em;
+	margin-bottom: 1em;
+}
+
+form > p
+{
+	color: #C80815;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#psalmtext
+{
+	color: #000000;
+	font-size: 1em;
+}
+
+.centerText
+{
+	text-align: center;
+}
+
+.smallText
+{
+	font-size: 0.80em;
+}
+
+a.smallText
+{
+	color: #DAA520;
+	font-weight: bold;
+}
+
+a.smallText:hover
+{
+	color: #FFCC00;
+}
+
+footer.author
+{
+	font-style: italic;
+	text-align: right;
+}

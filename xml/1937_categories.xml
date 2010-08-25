@@ -1,0 +1,338 @@
+<hymns>
+	<title>Den svenska psalmboken (1937)</title>
+	<categories>
+		<category number="1">
+			<name>Ingångspsalm</name>
+		</category>
+		<category number="2">
+			<name>Guds Majestät och Härlighet</name>
+			<category number="1">
+				<name>Guds lov</name>
+			</category>
+			<category number="2">
+				<name>Trefaldighetspsalmer</name>
+			</category>
+			<category number="3">
+				<name>Guds härlighet i Kristus</name>
+			</category>
+		</category>
+		<category number="3">
+			<name>Kyrkans Högtider</name>
+			<category number="1">
+				<name>Advent</name>
+			</category>
+			<category number="2">
+				<name>Jul</name>
+			</category>
+			<category number="3">
+				<name>Nyårsdagen</name>
+			</category>
+			<category number="4">
+				<name>Trettondag Jul</name>
+			</category>
+			<category number="5">
+				<name>Passionstiden</name>
+			</category>
+			<category number="6">
+				<name>Påsk</name>
+			</category>
+			<category number="7">
+				<name>Tiden efter påsk</name>
+			</category>
+			<category number="8">
+				<name>Kristi Himmelsfärds dag</name>
+			</category>
+			<category number="9">
+				<name>Pingst</name>
+			</category>
+			<category number="10">
+				<name>Kristi Förklarings dag</name>
+			</category>
+			<category number="11">
+				<name>Den helige Mikaels dag</name>
+			</category>
+			<category number="12">
+				<name>Alla Helgons dag</name>
+			</category>
+			<category number="13">
+				<name>Botdagen</name>
+			</category>
+			<category number="14">
+				<name>Reformationsdagen</name>
+			</category>
+		</category>
+		<category number="4">
+			<name>Kyrkan och Nådemedlen</name>
+			<category number="1">
+				<name>Kyrkan</name>
+			</category>
+			<category number="2">
+				<name>Ordet</name>
+			</category>
+			<category number="3">
+				<name>Dopet</name>
+			</category>
+			<category number="4">
+				<name>Nattvarden</name>
+			</category>
+			<category number="5">
+				<name>Helg och gudstjänst</name>
+				<category number="1">
+					<name>När det ringer till gudstjänst</name>
+				</category>
+				<category number="2">
+					<name>Efter predikan</name>
+				</category>
+				<category number="3">
+					<name>Vid gudstjänstens slut</name>
+				</category>
+			</category>
+			<category number="6">
+				<name>Invigning av kyrka och kyrkogård</name>
+			</category>
+			<category number="7">
+				<name>Prästmbetet</name>
+				<category number="1">
+					<name>Prästval</name>
+				</category>
+				<category number="2">
+					<name>Biskopsvigning</name>
+				</category>
+			</category>
+			<category number="8">
+				<name>Konfirmation</name>
+			</category>
+			<category number="9">
+				<name>Vigsel</name>
+			</category>
+			<category number="10">
+				<name>Diakoni</name>
+			</category>
+			<category number="11">
+				<name>Mission</name>
+			</category>
+		</category>
+		<category number="5">
+			<name>Det kristna livet</name>
+			<category number="1">
+				<name>Kallelse och upplysning</name>
+			</category>
+			<category number="2">
+				<name>Bättring och omvändelse</name>
+			</category>
+			<category number="3">
+				<name>Tro, förltelse, barnaskap</name>
+			</category>
+			<category number="4">
+				<name>Trons glädje och förtröstan</name>
+			</category>
+			<category number="5">
+				<name>Bönen</name>
+			</category>
+			<category number="6">
+				<name>Trons vaksamhet och kamp</name>
+			</category>
+			<category number="7">
+				<name>Trons prövning under frestelser och lidanden</name>
+			</category>
+			<category number="8">
+				<name>Trons bevisning i levnaden</name>
+			</category>
+		</category>
+		<category number="6">
+			<name>Tidens skiften</name>
+			<category number="1">
+				<name>Dagens tider</name>
+				<category number="1">
+					<name>Morgon</name>
+				</category>
+				<category number="2">
+					<name>Afton</name>
+				</category>
+				<category number="3">
+					<name>Vid aftonklämtningen</name>
+				</category>
+				<category number="4">
+					<name>Vid helgmålsrigningen</name>
+				</category>
+				<category number="5">
+					<name>På söndagens afton</name>
+				</category>
+				<category number="6">
+					<name>Morgon och afton</name>
+				</category>
+			</category>
+			<category number="2">
+				<name>Årsskifte</name>
+			</category>
+			<category number="3">
+				<name>Årstiderna</name>
+				<category number="1">
+					<name>Våren</name>
+				</category>
+				<category number="2">
+					<name>Sommaren</name>
+				</category>
+				<category number="3">
+					<name>Hösten</name>
+				</category>
+				<category number="4">
+					<name>Vintern</name>
+				</category>
+			</category>
+		</category>
+		<category number="7">
+			<name>Det kristna samhället</name>
+			<category number="1">
+				<name>Hemmet</name>
+				<category number="1">
+					<name>Måltidspsalm</name>
+				</category>
+			</category>
+			<category number="2">
+				<name>Skolan</name>
+			</category>
+			<category number="3">
+				<name>Fosterlandet</name>
+				<category number="1">
+					<name>Konungaspegel</name>
+				</category>
+				<category number="2">
+					<name>Lag och rätt</name>
+				</category>
+			</category>
+			<category number="4">
+				<name>Jordens fruktbarhet</name>
+				<category number="1">
+					<name>Skördetiden</name>
+				</category>
+			</category>
+			<category number="5">
+				<name>Arbetet</name>
+				<category number="1">
+					<name>Vid resa</name>
+				</category>
+				<category number="2">
+					<name>Sjöfolk</name>
+				</category>
+			</category>
+			<category number="6">
+				<name>Ofärdstider</name>
+			</category>
+		</category>
+		<category number="8">
+			<name>Unga och Gamla</name>
+			<category number="1">
+				<name>Barn</name>
+			</category>
+			<category number="2">
+				<name>Ungdom</name>
+			</category>
+			<category number="3">
+				<name>Ålderdom</name>
+			</category>
+		</category>
+		<category number="9">
+			<name>De yttersta tingen</name>
+			<category number="1">
+				<name>Livets förgnglighet och evighetens allvar</name>
+			</category>
+			<category number="2">
+				<name>Det kristna hoppet inför dden</name>
+				<category number="1">
+					<name>Vid ett barns död</name>
+				</category>
+				<category number="2">
+					<name>Vid en ung människas jordfästning</name>
+				</category>
+				<category number="3">
+					<name>Vid en trogen Herrens tjänares jordfästning</name>
+				</category>
+			</category>
+			<category number="3">
+				<name>Uppståndelsen, domen och det eviga livet</name>
+			</category>
+		</category>
+		<category number="10">
+			<name>Slutpsalm</name>
+		</category>
+		<category number="11">
+			<name>Hymner och Sånger fär särskilda gudstjänster</name>
+			<category number="1">
+				<name>Laudamus</name>
+			</category>
+			<category number="2">
+				<name>Laudamus (ldre form)</name>
+			</category>
+			<category number="3">
+				<name>Te Deum</name>
+			</category>
+			<category number="4">
+				<name>Te Deum 2</name>
+			</category>
+			<category number="5">
+				<name>Pro pace et principe</name>
+			</category>
+			<category number="6">
+				<name>Dies ir</name>
+			</category>
+			<category number="7">
+				<name>Sånger ur skrifen</name>
+				<category number="1">
+					<name>Marias lovsång (Mafnigicat)</name>
+				</category>
+				<category number="2">
+					<name>Sakarias lovsång (Benedictus)</name>
+				</category>
+				<category number="3">
+					<name>Simeons lovsång (Nunc dimittis)</name>
+				</category>
+			</category>
+		</category>
+		<category number="12">
+			<name>Psalmer att läsas vid enskild andakt</name>
+			<category number="1">
+				<name>På födelsedagen</name>
+			</category>
+			<category number="2">
+				<name>För en moder, som ska kyrkotagas</name>
+			</category>
+			<category number="3">
+				<name>Vid ett barns bädd</name>
+			</category>
+			<category number="4">
+				<name>Vid gudstjänstringning</name>
+			</category>
+			<category number="5">
+				<name>För ensamma gamla</name>
+			</category>
+			<category number="6">
+				<name>Vid en faders död</name>
+			</category>
+			<category number="7">
+				<name>Vid en moders död</name>
+			</category>
+			<category number="8">
+				<name>Vid fromma förldrars grav</name>
+			</category>
+			<category number="9">
+				<name>Vid en makes död</name>
+			</category>
+			<category number="10">
+				<name>Vid ett barns grav</name>
+			</category>
+			<category number="11">
+				<name>För blinda</name>
+			</category>
+			<category number="12">
+				<name>Vid långvarig ohälsa</name>
+			</category>
+			<category number="13">
+				<name>Nattvardspsalmer för sjuka</name>
+			</category>
+			<category number="14">
+				<name>Vid årsskiftet</name>
+			</category>
+		</category>
+	</categories>
+</hymns>

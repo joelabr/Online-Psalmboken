@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS-Document */
+html, body
+{
+	height: 100%;
+	width: 100%;
+}
+
+body
+{
+	background-color: #FFFFFF;
+}
+
+#wrapper
+{
+	margin: 0 auto;
+	padding: 1em;
+	width: 60%;
+}
+
+#hymnmelody
+{
+	width: 100%;
+}
+
+#hymntext
+{
+	list-style: decimal inside;
+	margin: 1em;
+}
+
+#hymntext > li
+{
+	margin-bottom: 1em;
+}
+
+footer
+{
+	margin-top: 1em;
+}
+
+.box
+{
+	border: 1px solid #E5E5E5;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin-bottom: 1em;
+	padding: 0.75em;
+}
+
+.center
+{
+	margin: 0 auto;
+}
+
+.flagImage
+{
+	margin-right: 0.25em;
+}
+
+.hidden
+{
+	display: none;
+	visibility: hidden;
+}
+
+.overline
+{
+	border-top: 1px dotted #E5E5E5;
+	margin: 0.5em auto 0;
+	padding-top: 0.5em;
+}
+
+.rightAlign
+{
+	float: right;
+	margin-left: 1em;
+	margin-right: 0;
+}
+
+.underline
+{
+	border-bottom: 1px dotted #E5E5E5;
+	margin: 0 auto 0.5em;
+	padding-bottom: 0.5em;
+}
+
+input[type="text"]
+{
+	border: 1px solid #D0D0D0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 0.25em;
+	width: 60%;
+}
+
+input[type="text"]:focus
+{
+	border-color: #B0B0B0;
+}
+
+input[type="button"]
+{
+	background-color: #F5F5F5;
+	border: 1px solid #D0D0D0;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 0.25em 1em;
+}
+
+input[type="button"]:hover
+{
+	background-color: #FAFAFA;
+}
+
+input[type="button"]:active
+{
+	background-color: #F0F0F0;
+}
+
+select
+{
+	border: 1px solid #D0D0D0;
+	margin: 0.25em;
+}
+
+ul.inlineMenu > li
+{
+	display: inline;
+	margin-right: 1em;
+}

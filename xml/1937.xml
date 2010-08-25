@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hymns>
+	<title>Den svenska psalmboken (1937)</title>
+	<hymn>
+		<number>1</number>
+		<title>Upp, psaltare och harpa</title>
+		<category>Ingångspsalm</category>
+		<authors>
+			<author>
+				<name>J.0. Wallin</name>
+				<year>1816</year>
+			</author>
+		</authors>
+		<verses>
+			<verse number="1">Upp psaltare och harpa! Upp, kraftens ord, du Andens svärd, Tveeggade och skarpa, Ur dvalan väck en syndig värld! Och nådens milda lära, De väckta hjärtan bjud Att känna, älska, ära Barmhärtighetens Gud, Som huld i Sions gårdar Med Anden och sitt ord Allt som en herde vårdar Sin dyra återlösta hjord!</verse>
+			<verse number="2">Han för de kvistar torra Ej hugga vill sitt vinträd ner. Han skonar ett Gomorra, Där tio fromma blott han ser. Där två och tre allena Uti hans dyra namn Sin bön och sång förena, Han öppnar nådens famn Och hjärtan vederkvecker Och giver själar ro Och med sin sköld betäcker Sin frälsta kyrkas hopp och tro.</verse>
+			<verse number="3">Så kom i helig prydnad, O Sulamit, du Kristi brud! I oskuld och i lydnad Möt här din Herre och din Gud! Han är din brudgum bliven Att frälsa dig från fall Och är för dig utgiven, Att han dig helga skall. I trohet och i renhet Giv hjärtat med din hand, Och vårda andens enhet Med kärlekens och fridens band.</verse>
+			<verse number="4">Ej evigt är du vorden I dessa Kedars hyddor fäst: En liten tid på jorden Du går, en främling och en gäst. Var trogen, o, var trägen I lov och bönesång, Så bliver himlavägen Ej slipprig eller lång. De frommas samljud tvingar Till tystnad kvalens röst: När Davids harpa klingar, Det stormar ej i Sauls bröst.</verse>
+			<verse number="5">Men glad som Moses skådar Från öknens sand, från mödans ban Det land, som Herren bådar På andra sidan av Jordan, Så själen sig förnöjer Av salighetens hopp Och tjust från jorden höjer Sin blick till himlen opp: I tron hon ser och smakar, Hur ljuvlig Herren är, När helig andakt vakar På alla känslor och begär.</verse>
+			<verse number="6">Kom, Israel, att dyrka Din Gud på varje tid och ort, Men blive dig hans kyrka Ett heligt rum och himlens port! Ej störe mänskofunder Och jordiskt känsloprål De helga sabbatsstunder, De höga föremål, Att Herren i ditt öra Ej ropar innan kort: "Jag vill ditt spel ej höra, Hav dina visors buller bort!"</verse>
+			<verse number="7">Dig skall ditt Sion sjunga Och bära fram för dig, o Gud, Med hjärta och med tunga Sin lovpsalm och sitt böneljud. Ditt ord i våra bygder Må rikeligen bo Och bära frukt i dygder, Gudaktighet och ro. Som havets sand otaligt Ditt folk föröke sig Och heligt och lycksaligt I evighet lovsjunge dig!</verse>			
+		</verses>
+	</hymn>
+	<hymn>
+		<number>2</number>
+		<title>Du som härlig ställde</title>
+		<category>Guds lov</category>
+		<authors>
+			<author>
+				<name>J.O. Wallin</name>
+				<year>1811</year>
+			</author>
+		</authors>
+		<verses>
+			<verse number="1">Du som härlig ställde Din tron högt över tiden, Där sällheten och friden Ej växla om, ej sluta sig, Evige, ditt välde Ej ljus och mörker skiftat Den lag för oss du stiftat Förvandlar icke dig.</verse>
+			<verse number="2">Konung i det höga Du släkten bortgå låter Och andra komma åter Och åldrar undan åldrar fly. Men ditt fadersöga Milt vakar över alla. Din nåd som vi åkalla Är varje morgon ny.</verse>
+			<verse number="3">År och vänner flykta, Men du densamme bliv er. Du än åt barnen giver Den vård som du åt fädren gav: Mod åt de betryckta Och styrka åt de svaga Och tröst åt dem som klaga Vid sina vänners grav.</verse>
+			<verse number="4">Gud, vi vandra trygga, När redligen vi vandra I kärlek för varandra Och hörsamhet för dina bud. Gud, på dig vi bygga Vårt hopp i alla öden. I livet och i döden Du vårdar oss, o Gud.</verse>
+			<verse number="5">Lovad vare Herren! Sannfärdig, vis och nådig Och helig och rättrådig Han alltid allt allen förmår. Lovad vare Herren! Hans lag, hans nådelära, Hans härlighet och ära I evighet består.</verse>
+		</verses>
+	</hymn>
+	<hymn>
+		<number>3</number>
+		<title>Höga Majestät, vi alla</title>
+		<category>Guds lov</category>
+		<authors>
+			<author>
+				<name>S.J. Hedborn</name>
+				<year>1812</year>
+			</author>
+		</authors>
+		<verses>
+			<verse number="1"></verse>
+		</verses>
+	</hymn>
+	<hymn>
+		<number>4</number>
+		<title>Helig, helig, helig, Herre Gud allsmäktig!</title>
+		<category>Guds lov</category>
+		<authors>
+			<author>
+				<name>R. Heber</name>
+				<year>1826</year>
+			</author>
+			<author>
+				<name>J.A. Eklund</name>
+				<year>1934</year>
+			</author>
+		</authors>
+		<verses>
+			<verse number="1"></verse>
+		</verses>
+	</hymn>
+	<hymn>
+		<number>5</number>
+		<title>Lova vill jag Herran</title>
+		<category>Guds lov</category>
+		<authors>
+			<author>
+				<name>G. Ållon</name>
+				<year>1694</year>
+			</author>
+			<author>
+				<name>J.O Wallin</name>
+				<year>1816</year>
+			</author>
+		</authors>
+		<verses>
+			<verse number="1"></verse>
+		</verses>
+	</hymn>
+</hymns>

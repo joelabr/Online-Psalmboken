@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Online-Psalmboken</title>
+		
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/site.css" rel="stylesheet" type="text/css" />
+		<link href="http://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Neuton' rel='stylesheet' type='text/css'>
+		<link href="css/text.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body onload="initPage();">
+		<div id="wrapper">
+			<ul class="inlineMenu underline">
+				<li><a data-trans="frontpage" href="javascript: changePage('frontpage.html');"></a></li>
+				<li><a data-trans="searchhymn" href="javascript: changePage('search.html');"></a></li>
+				<li><a href="javascript: changePage('privacy.html');">Privacy Policy</a></li>
+				<li class="rightAlign"><a href="javascript: changeLocale('en');"><img class="flagImage" src="img/gb_us.png" alt="English"/>English</a></li>
+				<li class="rightAlign"><a href="javascript: changeLocale('sv');"><img class="flagImage" src="img/sv.png" alt="Svenska"/>Svenska</a></li>
+			</ul>
+			
+			<div id="pagecontent">
+			</div>
+			<footer>
+				<ul class="inlineMenu smallText centerText">
+					<li>© Copyright Online-Psalmboken.se, All rights reserverd</li><br />
+					<li><a href="javascript: changePage('privacy.html');">Privacy policy</a></li>
+				</ul>
+			</footer>
+		</div>
+	</body>
+	<script src="js/prototype.js" type="text/javascript"></script>
+	<script src="js/modernizr-1.5.min.js" type="text/javascript"></script>
+	<script src="js/jsI18n.js" type="text/javascript"></script>
+	<script src="js/sv.js" type="text/javascript"></script>
+	<script src="js/en.js" type="text/javascript"></script>
+	<script src="js/site.js" type="text/javascript"></script>
+	<script src="js/search.js" type="text/javascript"></script>
+</html>

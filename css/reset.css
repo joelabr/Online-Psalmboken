@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* Reset CSS Document */
+*
+{
+	border: 0;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+}
+
+a
+{
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+ul, ol
+{
+	list-style: none;
+}
+
+img
+{
+	border: 0;
+}
+
+.floatLeft
+{
+	float: left;
+}
+
+.floatRight
+{
+	float: right;
+}
+
+.centerText
+{
+	text-align: center;
+}
+
+.thin
+{
+	font-weight: normal;
+}
+
+.bold
+{
+	font-weight: bold;
+}
