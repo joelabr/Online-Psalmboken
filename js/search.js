@@ -1,29 +1,50 @@
 /*
 	Search-functions
 */
+function NodeToXMLParser()
+{
+	this.nodeToXML	= function(node)
+	{
+		var xml	= null;
+		if (window.ActiveXObject)
+		{
+			xml	= new ActiveXObject("Microsoft.XMLDOM");
+			xml.async	= "false";
+			xml.loadXML(node.xml);
+		}
+		else
+			xml	= new DOMParser().parseFromString(new XMLSerializer().serializeToString(node),
+												  "text/xml");
+												  
+		return xml;
+	}
+}
+	
 function presentResults(hymn)
 {
 	if (hymn)
 	{
-		var xml	= new DOMParser().parseFromString(new XMLSerializer().serializeToString(hymn),
-												  "text/xml");
+		var xml	= new NodeToXMLParser().nodeToXML(hymn);
 		var xsl	= loadXMLDoc("xml/hymn.xsl");
 		
-		var searchresults	= document.getElementById("searchresults");
+		var searchResults	= document.getElementById("searchresults");
 		// Code for IE
 		if (window.ActiveXObject)
 		{
-			ex	= xml.transformNode(xsl);
-			searchresults.innerHTML	= ex + searchresults.innerHTML;
+			xml.setProperty("SelectionLanguage", "XPath");
+			var ex	= xml.transformNode(xsl);
+			searchResults.innerHTML	= ex + searchResults.innerHTML;
 		}
 		// Code for Mozilla, Firefox, Opera, etc.
 		else if (document.implementation && document.implementation.createDocument)
 		{
-			xsltProcessor	= new XSLTProcessor();
+			var xsltProcessor	= new XSLTProcessor();
 			xsltProcessor.importStylesheet(xsl);
-			resultDocument	= xsltProcessor.transformToFragment(xml, document);
+			var resultDocument	= xsltProcessor.transformToFragment(xml, document);
+			
 			//alert(searchresults.childNodes[1]);
-			searchresults.appendChild(resultDocument);
+			if (resultDocument)
+				searchResults.insertBefore(resultDocument, searchResults.childNodes[1]);
 		}
 		
 		jsI18n.processPage();
@@ -58,18 +79,28 @@ function HymnBook(fname)
 	{
 		if (!isNaN(num) && xmlDoc != null)
 		{
-			lastResults	= this.evaluate("/hymns/hymn[number=" + num + "]", null, XPathResult.ANY_TYPE, null);
-			
-			try
+			if (window.ActiveXObject)
 			{
-				var temp	= lastResults.iterateNext();
+				lastResults	= this.evaluate("/hymns/hymn[number=" + num + "]");
 				
-				if (temp)
-					presentResults(temp);
+				if (lastResults && lastResults.length > 0)
+					presentResults(lastResults[0]);
 			}
-			catch (e)
+			else
 			{
-				dump('Error: Document tree modified during iteration ' + e);
+				lastResults	= this.evaluate("/hymns/hymn[number=" + num + "]", null, XPathResult.ANY_TYPE, null);
+				
+				try
+				{
+					var temp	= lastResults.iterateNext();
+					
+					if (temp)
+						presentResults(temp);
+				}
+				catch (e)
+				{
+					alert('Error: Document tree modified during iteration ' + e);
+				}
 			}
 		}
 	}
@@ -82,6 +113,7 @@ function HymnBook(fname)
 			if (window.ActiveXObject)
 			{
 				xmlDoc.setProperty("SelectionLanguage", "XPath");
+				
 				res	= xmlDoc.selectNodes(xpath);
 			}
 			else

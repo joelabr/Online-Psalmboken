@@ -13,28 +13,14 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 				
 				<br />
 				<p class="underline"><a data-trans="showmelody" class="smallText" href="javascript: toggleVisibility('hymnmelody');"></a></p>
-				<div class="hymnmelody hidden underline">
-					<img class="center" src="http://www2.siba.fi/virtuaalikatedraali/vanhatvirret/e7.gif" alt="Temp melody"/>
-					<footer class="author">
-						Carlus Loremus, 2008
-					</footer>
+				<div class="hymnmelody underline">
+					<xsl:apply-templates select="hymn/melodies/melody[1]" />
 				</div>
 				<ul class="hymntext">
-					<xsl:for-each select="hymn/verses/verse">
-						<li><xsl:value-of select="." /></li>
-					</xsl:for-each>
+					<xsl:apply-templates select="hymn/verses/verse" />
 				</ul>
 				<div class="author">
-					<xsl:for-each select="hymn/authors/author">
-						<xsl:choose>
-							<xsl:when test=".[position()]=//author[last()]">
-								<xsl:value-of select="name" />(<xsl:value-of select="year" />)
-							</xsl:when>
-							<xsl:otherwise>
-								<xsl:value-of select="name" />(<xsl:value-of select="year" />), 
-							</xsl:otherwise>
-						</xsl:choose>
-					</xsl:for-each>
+					<xsl:apply-templates select="hymn/authors/author" />
 				</div>
 				
 				<ul class="inlineMenu overline">
@@ -44,5 +30,28 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 			</div>
 		</div>
 	</xsl:template>
-
+	
+	<xsl:template match="melody">
+		<img class="center" src="{sheet}" alt="{author}" />
+		
+		<div class="author">
+			<xsl:value-of select="author" />
+		</div>
+	</xsl:template>
+	
+	<xsl:template match="verse">
+		<li><xsl:value-of select="." /></li>
+	</xsl:template>
+	
+	<xsl:template match="author">
+		<xsl:choose>
+			<xsl:when test=".[position()]=//author[last()]">
+				<xsl:value-of select="name" />(<xsl:value-of select="year" />)
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="name" />(<xsl:value-of select="year" />), 
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	
 </xsl:stylesheet>

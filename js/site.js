@@ -7,6 +7,7 @@ function changePage(page)
 		new Ajax.Updater("pagecontent",
 						 page,
 						 {
+							method: "get",
 							onComplete: function()
 							{
 								jsI18n.processPage();
