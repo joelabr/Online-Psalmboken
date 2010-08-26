@@ -1,7 +1,7 @@
 /**
   jsI18n library.
   Simple client side internationalization.
-  Version: 1.1
+  Version: 1.1.1
   Copyright (c) Daniel Abrahamsson 2010
 **/
 
@@ -18,7 +18,6 @@ function JsI18n()
   {
     if(node != undefined)
     {
-      //Translate
       if(node.nodeType == 1) //Element node
       {
         var key = node.attributes["data-trans"]
@@ -69,7 +68,13 @@ function JsI18n()
       if(node != null && translation != undefined) 
       {
         if(node.nodeType == 1) //Element
-          node.innerHTML = translation
+        {
+          try {  
+            node.innerHTML = translation
+          } catch(e) {
+            node.text = translation
+          }
+        }
         else if(node.nodeType == 2) //Attribute
           node.value = translation
       }
