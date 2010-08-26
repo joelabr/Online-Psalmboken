@@ -52,22 +52,6 @@ function HymnEditor()
     return -1;
   }
   
-  function initializeForm(hymn) 
-  {
-    var authors = "";
-    for(var i = 0; i < hymn["authors"].size(); i++)
-      authors += hymn["authors"][i]["name"] + " (" + 
-        hymn["authors"][i]["year"] + "),"
-    authors = authors.substring(0, authors.length-1) //Strip trailing ,
-    
-    var form = document.getElementById("hymnform")
-    form.number.value = hymn["number"]
-    form.title.value = hymn["title"]
-    form.category.value = hymn["category"]
-    form.authors.value = authors;
-    form.verses.value = hymn["verses"].join("\n\n")
-  }
-  
   this.getXML = function() {
     var xml = "<hymns>"
     for(var i = 0; i < this.hymns.size(); i++)
@@ -103,6 +87,56 @@ function HymnEditor()
     return xml;
   }
 
+  function initializeForm(hymn) 
+  {
+    var authors = "";
+    for(var i = 0; i < hymn["authors"].size(); i++)
+      authors += hymn["authors"][i]["name"] + " (" + 
+        hymn["authors"][i]["year"] + "), "
+    authors = authors.substring(0, authors.length-2)//Strip trailing ,
+    
+    var form = document.getElementById("hymnform")
+    form.number.value = hymn["number"]
+    form.title.value = hymn["title"]
+    form.category.value = hymn["category"]
+    form.authors.value = authors
+    form.verses.value = hymn["verses"].join("\n\n")
+  }
+  
+  this.loadHymns = function()
+  {
+    var hymnBook = new HymnBook("xml/1937.xml")
+    var iterator = hymnBook.allHymns()
+    var hn = iterator.iterateNext()
+    while(hn != null)
+    {
+      var hymn = new Object()
+      hymn["number"] = hn.getElementsByTagName("number")[0].textContent
+      hymn["title"] = hn.getElementsByTagName("title")[0].textContent
+      hymn["category"] = hn.getElementsByTagName("category")[0].textContent
+      hymn["authors"] = new Array()
+      hymn["verses"] = new Array()
+      
+      var authors = hn.getElementsByTagName("author")
+      for(var i = 0; i < authors.length; i++)
+      {
+        var name = authors[i].getElementsByTagName("name")[0].textContent
+        var year = authors[i].getElementsByTagName("year")[0].textContent
+        hymn["authors"].push({"name":name, "year":year})
+      }
+
+      var verses = hn.getElementsByTagName("verse")
+      for(var i = 0; i < verses.length; i++)
+        hymn["verses"].push(verses[i].textContent) 
+
+      this.hymns.push(hymn)
+      hn = iterator.iterateNext()
+    }
+
+    this.updateHymnList();
+    this.updateXML();
+  }
+  
   this.parseAuthors = function(authorString) {
     var authors = new Array()
     var namesAndYears = authorString.split(",")
@@ -124,6 +158,7 @@ function HymnEditor()
   }
   
   this.parseVerses = function(verseString) {
+    verseString = verseString.replace(/\**\d+\./g, "") //No verse numbers
     var verses = verseString.split("\n\n")
     for(var i = 0; i < verses.size(); i++)
       verses[i] = this.trunc(verses[i])
