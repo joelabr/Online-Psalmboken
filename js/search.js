@@ -59,6 +59,10 @@ function HymnBook(fname)
 	var xmlDoc		= null;
 	var lastResults	= null;
 	
+  this.allHymns = function() {
+    return this.evaluate("/hymns/hymn", null, XPathResult.ANY_TYPE, null);
+  }
+
 	this.readFile	= function()
 	{
 		new Ajax.Request(file,
