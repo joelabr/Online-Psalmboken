@@ -24,18 +24,18 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 						<li><xsl:value-of select="." /></li>
 					</xsl:for-each>
 				</ul>
-				<footer class="author">
-					<xsl:for-each select="hymn/authors">
+				<div class="author">
+					<xsl:for-each select="hymn/authors/author">
 						<xsl:choose>
-							<xsl:when test="author[last()]">
-								<xsl:value-of select="author/name" />(<xsl:value-of select="author/year" />)
+							<xsl:when test=".[position()]=//author[last()]">
+								<xsl:value-of select="name" />(<xsl:value-of select="year" />)
 							</xsl:when>
 							<xsl:otherwise>
-								<xsl:value-of select="author/name" />(<xsl:value-of select="author/year" />), 
+								<xsl:value-of select="name" />(<xsl:value-of select="year" />), 
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:for-each>
-				</footer>
+				</div>
 				
 				<ul class="inlineMenu overline">
 					<li><a href="#"><span data-trans="melody"></span> 1</a></li>

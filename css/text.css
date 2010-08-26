@@ -76,7 +76,7 @@ form > p
 	margin-bottom: 0.5em;
 }
 
-#psalmtext
+.hymntext
 {
 	color: #000000;
 	font-size: 1em;
@@ -103,8 +103,9 @@ a.smallText:hover
 	color: #FFCC00;
 }
 
-footer.author
+.author
 {
+	color: #858585;
 	font-style: italic;
 	text-align: right;
 }

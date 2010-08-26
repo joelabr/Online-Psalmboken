@@ -22,7 +22,7 @@ function presentResults(hymn)
 			xsltProcessor	= new XSLTProcessor();
 			xsltProcessor.importStylesheet(xsl);
 			resultDocument	= xsltProcessor.transformToFragment(xml, document);
-			alert(searchresults.childNodes[1]);
+			//alert(searchresults.childNodes[1]);
 			searchresults.appendChild(resultDocument);
 		}
 		
