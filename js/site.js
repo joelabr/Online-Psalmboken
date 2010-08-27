@@ -11,6 +11,7 @@ function changePage(page)
 							onComplete: function()
 							{
 								jsI18n.processPage();
+								createCookie("page", page, 0.42);
 							}
 						 });
 }
@@ -34,7 +35,12 @@ function changeLocale(locale)
 function initPage()
 {
 	translatePage();
-	changePage("frontpage.html");
+	
+	var page	= readCookie("page");
+	if (page)
+		changePage(page);
+	else
+		changePage("frontpage.html");
 }
 
 function translatePage()

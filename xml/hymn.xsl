@@ -45,7 +45,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="author">
 		<xsl:choose>
-			<xsl:when test=".[position()]=//author[last()]">
+			<xsl:when test=".=//author[last()]">
 				<xsl:value-of select="name" />(<xsl:value-of select="year" />)
 			</xsl:when>
 			<xsl:otherwise>
