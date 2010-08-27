@@ -11,6 +11,7 @@ var translations =
 	"searchquery":"Search query:",
 	"searchbutton":"Search",
 	"searchresults":"Search results",
+	"showresults":"Show/Hide results",
 	"showmelody":"Show/Hide note sheet",
 	"hits":"Hits:&#009;",
 	"hymnnumber":"Hymnnumber:&#009;",

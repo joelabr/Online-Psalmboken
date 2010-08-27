@@ -1,6 +1,8 @@
 /*
 	Search-functions
 */
+var resultDivs	= new Array();
+
 function NodeToXMLParser()
 {
 	this.nodeToXML	= function(node)
@@ -17,6 +19,25 @@ function NodeToXMLParser()
 												  "text/xml");
 												  
 		return xml;
+	}
+}
+
+function processSearchResults(element)
+{
+	if (element)
+	{
+		if (resultDivs.length > 0)
+			for (var i = 0; i < resultDivs.length; i++)
+				showElement(resultDivs[i].id, false);
+
+		resultDivs.push(element);
+		
+		if (resultDivs.length > 5)
+		{
+			var temp = resultDivs.shift();
+			document.getElementById("searchresults").removeChild(temp.previousSibling);
+			document.getElementById("searchresults").removeChild(temp);
+		}
 	}
 }
 	
@@ -42,9 +63,11 @@ function presentResults(hymn)
 			xsltProcessor.importStylesheet(xsl);
 			var resultDocument	= xsltProcessor.transformToFragment(xml, document);
 			
-			//alert(searchresults.childNodes[1]);
 			if (resultDocument)
+			{
 				searchResults.insertBefore(resultDocument, searchResults.childNodes[1]);
+				processSearchResults(searchResults.childNodes[2]);
+			}
 		}
 		
 		jsI18n.processPage();

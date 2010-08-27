@@ -11,6 +11,7 @@ var translations =
 	"searchquery":"Söktext:",
 	"searchbutton":"Sök",
 	"searchresults":"Sökresultat",
+	"showresults":"Visa/Göm resultat",
 	"showmelody":"Visa/Göm noter",
 	"hits":"Träffar:&#009;",
 	"hymnnumber":"Psalm:&#009;",

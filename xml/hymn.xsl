@@ -3,8 +3,12 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+	<xsl:variable name="divID" select="generate-id(/)" />
+	<xsl:variable name="hymnID" select="generate-id(hymn/melodies/melody)" />
+	
 	<xsl:template match="/">
-		<div>
+		<p class="underline"><a data-trans="showresults" class="smallText" href="javascript: toggleVisibility('{$divID}');"></a></p>
+		<div id="{$divID}">
 			<!-- <h6 data-trans="searchresults"></h6> -->
 			<div class="box">
 				<p><span data-trans="hymnnumber" style="color:#C80815"></span><xsl:value-of select="hymn/number" /></p>
@@ -12,8 +16,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 				<p><span data-trans="category" style="color:#C80815"></span><xsl:value-of select="hymn/category" /></p>
 				
 				<br />
-				<p class="underline"><a data-trans="showmelody" class="smallText" href="javascript: toggleVisibility('hymnmelody');"></a></p>
-				<div class="hymnmelody underline">
+				<p class="underline"><a data-trans="showmelody" class="smallText" href="javascript: toggleVisibility('{$hymnID}');"></a></p>
+				<div id="{$hymnID}" class="hymnmelody hidden underline">
 					<xsl:apply-templates select="hymn/melodies/melody[1]" />
 				</div>
 				<ul class="hymntext">
@@ -24,7 +28,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 				</div>
 				
 				<ul class="inlineMenu overline">
-					<li><a href="#"><span data-trans="melody"></span> 1</a></li>
+					<xsl:for-each select="hymn/melodies/melody">
+						<li><a href="psalmer/{id}.mid"><span data-trans="melody"></span> - <xsl:value-of select="id" /></a></li>
+					</xsl:for-each>
 					<li class="rightAlign"><a data-trans="downloadmelody" href="#"></a></li>
 				</ul>
 			</div>
