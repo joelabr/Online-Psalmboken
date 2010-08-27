@@ -116,19 +116,20 @@ function HymnEditor()
       hymn["category"] = hn.getElementsByTagName("category")[0].textContent
       hymn["authors"] = new Array()
       hymn["verses"] = new Array()
-      
-      var authors = hn.getElementsByTagName("author")
+     
+      var authors = hn.getElementsByTagName("authors")[0].
+        getElementsByTagName("author")
       for(var i = 0; i < authors.length; i++)
       {
         var name = authors[i].getElementsByTagName("name")[0].textContent
         var year = authors[i].getElementsByTagName("year")[0].textContent
         hymn["authors"].push({"name":name, "year":year})
       }
-
+      
       var verses = hn.getElementsByTagName("verse")
       for(var i = 0; i < verses.length; i++)
         hymn["verses"].push(verses[i].textContent) 
-
+      
       this.hymns.push(hymn)
       hn = iterator.iterateNext()
     }
