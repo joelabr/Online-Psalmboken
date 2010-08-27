@@ -11,12 +11,14 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 		<div id="{$divID}">
 			<!-- <h6 data-trans="searchresults"></h6> -->
 			<div class="box">
-				<p><span data-trans="hymnnumber" style="color:#C80815"></span><xsl:value-of select="hymn/number" /></p>
-				<p><span data-trans="hymntitle" style="color:#C80815"></span><xsl:value-of select="hymn/title" /></p>
-				<p><span data-trans="category" style="color:#C80815"></span><xsl:value-of select="hymn/category" /></p>
+				<p>
+                    <a href="#"><xsl:value-of select="hymn/category" /></a> &#160;&#187;&#160; 
+                    <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
+                    <xsl:value-of select="hymn/title" /></span>
+                    <a data-trans="showmelody" class="smallText rightAlign" href="javascript: toggleVisibility('{$hymnID}');"></a>
+				</p>
 				
-				<br />
-				<p class="underline"><a data-trans="showmelody" class="smallText" href="javascript: toggleVisibility('{$hymnID}');"></a></p>
+				
 				<div id="{$hymnID}" class="hymnmelody hidden underline">
 					<xsl:apply-templates select="hymn/melodies/melody[1]" />
 				</div>

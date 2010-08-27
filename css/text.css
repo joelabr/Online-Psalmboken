@@ -109,3 +109,8 @@ a.smallText:hover
 	font-style: italic;
 	text-align: right;
 }
+
+.colorRed
+{
+    color: #C80815;
+}

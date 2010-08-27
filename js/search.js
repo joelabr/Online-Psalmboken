@@ -174,7 +174,7 @@ function searchHymn()
         else if(categoryPattern.test(query.value))
           alert("Kategori");
         else if(authorPattern.test(query.value))
-          alert("F�rfattare");
+          alert("Författare");
 				else
 					alert("Sträng");
 			}
