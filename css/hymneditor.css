@@ -25,9 +25,20 @@
   width:100%;
 }
 
+#hymnwrapper
+{
+  max-height:300px;
+  overflow:auto;
+}
+
 #xmlcontainer
 {
   border:1px solid black;
   width:100%;
   height:100px;
+}
+
+.numbercell
+{
+  width:50px;
 }

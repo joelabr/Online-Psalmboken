@@ -177,9 +177,9 @@ function HymnEditor()
   {
     //Sort hymns
     this.hymns.sort(function(a, b) {
-      if(a["number"] < b["number"])
+      if(parseInt(a["number"]) < parseInt(b["number"]))
         return 1;
-      if(a["number"] > b["number"])
+      if(parseInt(a["number"]) > parseInt(b["number"]))
         return -1;
       return 0;
     })
@@ -192,11 +192,16 @@ function HymnEditor()
       var hymn = this.hymns[i]
       var row = list.insertRow(0)
       var numberCell = row.insertCell(0)
+      numberCell.className = "numbercell"
       numberCell.innerHTML = "<strong>"+hymn["number"] + "</strong>."
       var titleCell = row.insertCell(1)
       var editLink = "<a href=\"javascript:hymnEditor.editHymn('" +
         hymn["number"] + "')\">" + hymn["title"] + "</a>"
       titleCell.innerHTML = editLink
+      var removeCell = row.insertCell(2)
+      var removeLink = "<a href=\"javascript:hymnEditor.removeHymn('" +
+        hymn["number"] + "')\">Remove</a>"
+      removeCell.innerHTML = removeLink
     } 
   }
   
