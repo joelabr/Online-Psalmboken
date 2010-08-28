@@ -58,10 +58,10 @@ function translatePage()
 /*
   Visibility-functions
 */
-/*	
+/*  
   Toggle visibility of an element
     Arguments:
-        [0]	- Element ID
+        [0] - Element ID
 */
 function toggleVisibility(id)
 {
@@ -81,11 +81,11 @@ function toggleVisibility(id)
   }
 }
 
-/*	
+/*  
   Set the specified element's visibility
     Arguments:
-        [0]	- Element ID
-        [1]	- Show (bool)
+        [0] - Element ID
+        [1] - Show (bool)
 */
 function showElement(id, show)
 {
@@ -103,6 +103,20 @@ function showElement(id, show)
       id.style.display    = "none";
       id.style.visibility = "hidden";
     }
+  }
+}
+
+/*
+  Remove the specified element
+*/
+function removeElement(id)
+{
+  var id  = document.getElementById(id);
+  
+  if (id)
+  {
+    var pid = id.parentNode;
+    pid.removeChild(id);
   }
 }
 
