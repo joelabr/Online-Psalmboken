@@ -103,6 +103,16 @@ a.smallText:hover
   color: #FFCC00;
 }
 
+a.darkLink
+{
+  color: #C04000;
+}
+
+a.darkLink:hover
+{
+  color: #FF7F00;
+}
+
 .author
 {
   color: #858585;

@@ -26,7 +26,7 @@ function processSearchResults()
 {
   if (resultDivs.length > 1)
     for (var i = 0; i < resultDivs.length - 1; i++)
-      showElement(resultDivs[i].childNodes[1].id, false);
+      showElement(resultDivs[i].getElementsByTagName("div")[0].id, false);
   
   if (resultDivs.length > 5)
   {
@@ -59,13 +59,29 @@ function removeSearchResults(id)
     removeElement(id);
     
     for (var i = 0; i < resultDivs.length; i++)
+    {
       if (resultDivs[i].id  === id)
         resultDivs.splice(i, 1);
+    }
     
     processSearchResults();    
   }
   else
     alert("Element not found");
+}
+
+/*
+  **IE-specific!**
+  Creates a "generic" element and sets it's innerHTML property to str
+  
+  Hack?
+*/
+function turnStringIntoElement(str)
+{
+  var temp  = document.createElement("");
+  temp.innerHTML  = str;
+  
+  return temp;
 }
 
 /*
@@ -129,9 +145,13 @@ function presentResults(hymn)
 
     if(data)
     {
-      var searchResults	= document.getElementById("searchresults");
+      var searchResults = document.getElementById("searchresults");
       if(window.ActiveXObject)
-        searchResults.innerHTML = data + searchResults.innerHTML;
+      {
+        data  = turnStringIntoElement(data.substr(data.indexOf("?>") + 2));
+        searchResults.innerHTML = data.innerHTML + searchResults.innerHTML;
+        addSearchResults(data.firstChild);
+      }
       else
       {
         searchResults.insertBefore(data, searchResults.childNodes[1]);

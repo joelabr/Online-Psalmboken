@@ -13,9 +13,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <a href="#"><xsl:value-of select="hymn/category" /></a> &#160;&#187;&#160; 
         <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
         <xsl:value-of select="hymn/title" /></span>
-        <a class="closeImage rightAlign" href="javascript: removeSearchResults('{$divID}');"></a>
+        <a class="imageButton closeImage rightAlign" href="javascript: removeSearchResults('{$divID}');"></a>
+        <a class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');"></a>
         <a data-trans="showmelody" class="smallText rightAlign" href="javascript: toggleVisibility('{$melodyID}');"></a>
-        <a data-trans="showresults" class="smallText rightAlign" href="javascript: toggleVisibility('{$hymnID}');"></a>
       </p>
       
       <div id="{$hymnID}">
