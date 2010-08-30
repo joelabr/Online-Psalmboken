@@ -27,16 +27,17 @@ object HymnDownloader
         var outputFile = new PrintWriter(new OutputStreamWriter(new FileOutputStream("hymns.xml"), java.nio.charset.Charset.forName("UTF-8")))
         var baseURL = "http://hem.bredband.net/psalmer/SvPs" + 
               hymnBook + "/Nr"
-  
+        
+        val pp = new xml.PrettyPrinter(350, 2) 
         var failedInARow = 0
         var failedHymns = new LinkedList[Int]()
         var num = startHymn
-        while(num <= endHymn && failedInARow < 250) {
+        while(num <= endHymn && failedInARow < 5) {
           try {
             print("Downloading hymn " + num + "\t")
 
             val html = Downloader.downloadToString(baseURL + num + ".html") 
-            outputFile.println(htmlToXML(html))
+            outputFile.println(pp.format(htmlToXML(html)))
             
             failedInARow = 0
             println("OK")
@@ -54,7 +55,7 @@ object HymnDownloader
         //Finished
         outputFile.close
         
-        if(failedInARow >= 3)
+        if(failedInARow > 0)
           println("Multiple failed attempts in a row, halting.")
         else
           println("Finished")
@@ -69,33 +70,26 @@ object HymnDownloader
  
   }
 
-  private def getAuthorsXML(str:String):String = {
+  private def getAuthorsXML(str:String) = {
     var dotPattern = """\.*\s*$"""
+    val emptyPattern  = """^\s*$"""
     var authorString = str.replaceAll("""\-\.""", "")
     val authors = authorString.split('\n')
-    var authorsXML = ""
-    authors.foreach {(author:String) =>
-      if(!author.matches("^\\s*$")) {
-        authorsXML = authorsXML + 
-        "\n\t\t<author>" +
-        "\n\t\t\t<name>" + author.replaceFirst(dotPattern, "") + "</name>" +
-        "\n\t\t\t<year></year>" +
-        "\n\t\t</author>"
-      }
+    for(author <- authors if !author.matches(emptyPattern)) yield {
+      <author> 
+        <name>{ author.replaceFirst(dotPattern, "") }</name>
+        <year></year>
+      </author>
     }
-    return authorsXML
   }
 
-  private def getVersesXML(verses:LinkedList[String]):String = {
-    var versesXML = ""
-    verses.zipWithIndex.foreach {
-      case (v, i) => versesXML = versesXML + "\n\t\t<verse number=\"" + 
-        (i+1) + "\">" + v.replaceAll("\n", "") + "</verse>"
+  private def getVersesXML(verses:LinkedList[String]) = {
+    for((v, i) <- verses.zipWithIndex) yield {
+      <verse number={ (i+1).toString }>{v.replaceAll("\n","")}</verse> 
     }
-    return versesXML
   }
 
-  private def htmlToXML(html:String):String = {
+  private def htmlToXML(html:String):xml.Elem = {
     val text = purify(html)
     val currentLine = text.lines
     val number = currentLine.next
@@ -127,13 +121,21 @@ object HymnDownloader
     verses = verses.take(verses.size - 1)
     val versesXML = getVersesXML(verses)
 
-    "<hymn>" +
-    "\n\t<number>" + number + "</number>" +
-    "\n\t<title>" + title + "</title>" + 
-    "\n\t<category></category>" +
-    "\n\t<authors>" + authorsXML + "\n\t</authors>" + 
-    "\n\t<verses>" + versesXML + "\n\t</verses>" +
-    "\n</hymn>"
+    <hymn>
+      <number>{ number}</number> 
+      <title>{title}</title>
+      <category></category>
+      <copyright></copyright>
+      <authors>{ authorsXML }</authors>
+      <verses>{ versesXML }</verses>
+      <melodies>
+        <melody>
+          <id>A</id>
+          <author></author>
+          <sheet>{ number }</sheet>
+        </melody>
+      </melodies> 
+    </hymn>
   }
   
   private def parseArguments(args:Array[String]) = {

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hymn example file -->
+<hymns>
+  <title>Hymnbook title</title>
+  <hymn>
+    <number>60</number>
+    <title>Once upon a time</title>
+    <category><!-- Category (in hymnbook) --></category>
+    <copyright><!-- Copyright info --></copyright>
+    <authors>
+      <author>
+        <name>Original Author</name>
+        <year>1826</year>
+      </author>
+      <author>
+        <name>Additional author</name>
+        <year>1931</year>
+      </author>
+    </authors>
+    <verses>
+      <verse number="1">Verse 1</verse>
+      <verse number="2">Verse 2</verse>
+      <verse number="3">Verse 3</verse>
+    </verses>
+    <melodies>
+      <melody>
+        <id>A</id>
+        <author>Melody Author</author>
+        <sheet>60</sheet>
+      </melody>
+    </melodies>
+  </hymn>
+</hymns>
