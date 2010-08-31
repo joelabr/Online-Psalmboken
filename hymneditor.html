@@ -39,6 +39,10 @@
                     <td><input type="text" name="category" value="" /></td>
                   </tr>
                   <tr> 
+                    <td><label>Copyright</label></td>
+                    <td><input type="text" name="copyright" value="" /></td>
+                  </tr>
+                  <tr> 
                     <td><label>Author(s)</label></td>
                     <td><input type="text" name="authors" value="" /></td>
                   </tr>
@@ -66,6 +70,9 @@
         <div>
           <br/>
           <h4>XML</h4>
+          <p>
+            <input type="button" onclick="hymnEditor.updateXML()" value="Generate XML" />
+          </p>
           <textarea id="xmlcontainer"></textarea></pre>
         </div>
 			</div>
