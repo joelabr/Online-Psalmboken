@@ -1,13 +1,13 @@
 <h1 data-trans="title"></h1>
 <div class="box">
-  <form name="hymnform" onsubmit="javascript: searchHymn(); return false;">
+  <form name="hymnform" onsubmit="javascript: app.searchHymn(); return false;">
     <p data-trans="hymnbook"></p>
-    <select>
+    <select name="hymnbook">
       <option value="1937">Den svenska psalmboken (1937)</option>
     </select>
     <p data-trans="searchquery"></p>
     <input data-trans="alt=searchquery" type="text" value="" name="searchquery" alt="" />    
-    <input data-trans="value=searchbutton;alt=searchbutton" id="searchbutton" type="button" value="" name="sok" alt="" onclick="javascript: searchHymn();" />
+    <input data-trans="value=searchbutton;alt=searchbutton" id="searchbutton" type="button" value="" name="sok" alt="" onclick="javascript: app.searchHymn();" />
   </form>
 </div>
 <h6 data-trans="searchresults" id="searchresults_h" class="hidden"></h6>
