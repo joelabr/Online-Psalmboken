@@ -13,6 +13,7 @@ var translations =
   "searchresults":"Sökresultat",
   "showresults":"Visa/Göm resultat",
   "showmelody":"Visa/Göm noter",
+  "playpause":"Spela/Pausa",
   "hits":"Träffar:&#009;",
   "hymnnumber":"Psalm:&#009;",
   "hymntitle":"Titel:&#009;",

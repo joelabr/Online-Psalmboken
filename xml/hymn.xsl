@@ -15,7 +15,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:value-of select="hymn/title" /></span>
         <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
         <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
-        <a data-trans="showmelody" class="smallText rightAlign" href="javascript: toggleVisibility('{$melodyID}');"></a>
+        <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
+        <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: void(0);" title=""></a>
       </p>
       
       <div id="{$hymnID}">

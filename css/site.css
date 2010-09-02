@@ -137,6 +137,20 @@ a.collapseImage
   padding: 5px;
 }
 
+a.noteImage
+{
+  background-image: url("../img/note.png");
+  margin-top: 0.12em;
+  padding: 5px;
+}
+
+a.playPauseImage
+{
+  background-image: url("../img/playpause.png");
+  margin-top: 0.12em;
+  padding: 5px 10px;
+}
+
 a.imageButton
 {
   filter: alpha(opacity=20);

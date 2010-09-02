@@ -13,6 +13,7 @@ var translations =
   "searchresults":"Search results",
   "showresults":"Show/Hide results",
   "showmelody":"Show/Hide note sheet",
+  "playpause":"Play/Pause",
   "hits":"Hits:&#009;",
   "hymnnumber":"Hymnnumber:&#009;",
   "hymntitle":"Title:&#009;",
