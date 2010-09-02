@@ -3,7 +3,7 @@
 */
 var translations =
 {
-    "title":"Online-Psalmboken",
+  "title":"Online-Psalmboken",
   "frontpage":"Förstasidan",
   "searchhymn":"Sök psalm",
   "welcometext":"Välkommen till Online-Psalmboken! Här hittar du texter, och möjligtvis melodier, till olika psalmer från olika psalmböcker! Vi hoppas att du hittar den psalm du söker!",
