@@ -4,16 +4,17 @@
 function changePage(page)
 {
   if (page)
-    new Ajax.Updater("pagecontent",
-             page,
-             {
-              method: "get",
-              onComplete: function()
-              {
-                jsI18n.processPage();
-                createCookie("page", page, 0.42);
-              }
-             });
+  {
+    var html  = loadXMLDoc(page, true);
+    var id  = document.getElementById("pagecontent");
+    if (html && id)
+    {
+      id.innerHTML  = html;
+      
+      jsI18n.processPage();
+      createCookie("page", page, 0.42);
+    }
+  }
 }
 
 /*
@@ -123,7 +124,7 @@ function removeElement(id)
 /*
   File-functions
 */
-function loadXMLDoc(dname)
+function loadXMLDoc(dname, notXML)
 {
   if (window.XMLHttpRequest)
     xhttp = new XMLHttpRequest();
@@ -133,7 +134,10 @@ function loadXMLDoc(dname)
   xhttp.open("GET", dname, false);
   xhttp.send();
   
-  return xhttp.responseXML;
+  if (notXML)
+    return xhttp.responseText;
+  else
+    return xhttp.responseXML;
 }
 
 /*

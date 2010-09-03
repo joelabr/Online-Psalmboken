@@ -222,7 +222,7 @@ function XSLTHelper(xslt)
 
 function HymnBook(fname)
 {
-  var xmlDoc      = loadXMLDoc(fname);
+  var xmlDoc      = loadXMLDoc(fname, false);
   var lastResults = null;
 
   //Returns XML for all hymns in the hymn book
@@ -233,7 +233,7 @@ function HymnBook(fname)
   //Processes the given XML node with the named stylesheet
   function processWithXSL(node, xslt) {
     var xml = new NodeToXMLConverter().nodeToXML(node);
-    var processor = new XSLTHelper(loadXMLDoc(xslt));
+    var processor = new XSLTHelper(loadXMLDoc(xslt, false));
     return processor.process(xml);
   }
   
