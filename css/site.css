@@ -187,6 +187,11 @@ ul.inlineMenu > li
   margin-right: 1em;
 }
 
+.lessMarginTop
+{
+  margin-top: -0.15em;
+}
+
 .lessMarginBottom
 {
   margin-bottom: 0.15em;

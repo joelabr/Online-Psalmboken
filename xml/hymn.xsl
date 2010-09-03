@@ -17,6 +17,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
         <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
         <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: void(0);" title=""></a>
+        <!-- <select class="rightAlign lessMarginTop">
+          <xsl:for-each select="hymn/melodies/melody">
+            <option value="{id}"><xsl:value-of select="id" />, <xsl:value-of select="author" /></option>
+          </xsl:for-each>
+        </select> -->
       </p>
       
       <div id="{$hymnID}">
