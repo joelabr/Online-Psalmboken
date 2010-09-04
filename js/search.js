@@ -6,7 +6,8 @@
 //Put search related methods into
 //here (refactor).
 app = new function Application() {
-  var hymnBook = new HymnBook("xml/1937.xml")
+  var hymnBook = null
+  var curHymnBook = "";
   var resultDivs  = new Array()
   var searchMethods = new Array()
  
@@ -34,8 +35,8 @@ app = new function Application() {
     addSearchMethod(/^\d+:+\d+$/, "searchVerse")
     //Global handler (must be added last!)
     addSearchMethod(/.+/, "searchByContent")
-  }
-  this.init()
+  }()
+  //this.init()
   
   //Presents the given data to the user
   this.presentSearchResult = function(data)
@@ -110,15 +111,29 @@ app = new function Application() {
     var hbname = document.hymnform.hymnbook.value
 
     //TODO: Select hymnbook
-    
-    //Call search method
-    for(var i = 0; i < searchMethods.length; i++)
+    if (hbname)
     {
-      var sm = searchMethods[i]
-      if(query.match(sm["regex"]))
+      if (curHymnBook !== hbname)
       {
-        hymnBook[sm["func"]].apply(this, [query])
-        break;
+        showElement("loadingImage", true);
+        hymnBook  = new HymnBook("xml/" + hbname + ".xml");
+        showElement("loadingImage", false);
+        
+        curHymnBook = hbname;
+      }
+    }
+    
+    if (hymnBook)
+    {
+      //Call search method
+      for(var i = 0; i < searchMethods.length; i++)
+      {
+        var sm = searchMethods[i]
+        if(query.match(sm["regex"]))
+        {
+          hymnBook[sm["func"]].apply(this, [query])
+          break;
+        }
       }
     }
 

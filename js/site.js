@@ -124,14 +124,22 @@ function removeElement(id)
 /*
   File-functions
 */
-function loadXMLDoc(dname, notXML)
-{
+function loadXMLDoc(dname, notXML, func)
+{  
   if (window.XMLHttpRequest)
     xhttp = new XMLHttpRequest();
   else
     xhttp = new ActiveXObject("Microsoft.XMLHTTP");
   
-  xhttp.open("GET", dname, false);
+  if (func)
+  {
+    var async = true;
+    addEvent(xhttp, "readystatechange", func);
+  }
+  else
+    var async = false;
+  
+  xhttp.open("GET", dname, async);
   xhttp.send();
   
   if (notXML)
@@ -181,14 +189,34 @@ function eraseCookie(name)
 }
 
 // Event-functions
-function addEvent(ele, evt, fn, capture)
-{
-  if (window.attachEvent)
-    ele.attachEvent("on" + evt, fn);
-  else
-  {
-    if (!capture) capture = false;
-  
-    ele.addEventListener(evt, fn, capture);
-  }
-}
+/*
+  Cross-browser Add Event-listener function
+*/
+var addEvent = (function( window, document ) {  
+    if ( document.addEventListener ) {  
+        return function( elem, type, cb ) {  
+            if ( elem && !elem.length ) {  
+                elem.addEventListener(type, cb, false );  
+            }  
+            else if ( elem && elem.length ) {  
+                var len = elem.length;  
+                for ( var i = 0; i < len; i++ ) {  
+                    addEvent( elem[i], type, cb );  
+                }  
+            }  
+        };  
+    }  
+    else if ( document.attachEvent ) {  
+        return function ( elem, type, cb ) {  
+            if ( elem && !elem.length ) {  
+                elem.attachEvent( 'on' + type, function() { return cb.call(elem) } );  
+            }  
+            else if ( elem.length ) {  
+                var len = elem.length;  
+                for ( var i = 0; i < len; i++ ) {  
+                    addEvent( elem[i], type, cb );  
+                }  
+            }  
+        };  
+    }
+})( this, document );
