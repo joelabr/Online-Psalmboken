@@ -98,10 +98,15 @@ app = new function Application() {
   }
 
 
-  //Searches a hymn 
-  this.searchHymn = function() {
-    var query = document.hymnform.searchquery.value;
-    var hbname = document.hymnform.hymnbook.value;
+  //Searches for a hymn 
+  //If the optional argument is given,
+  //that text will be used as the search text.
+  this.searchHymn = function(searchtext) {
+    if(searchtext != null)
+      document.hymnform.searchquery.value = searchtext
+
+    var query = document.hymnform.searchquery.value
+    var hbname = document.hymnform.hymnbook.value
 
     //TODO: Select hymnbook
     
@@ -122,24 +127,41 @@ app = new function Application() {
   }
 }
 
-//Helper for converting a XML Node
+//Helper for converting a XML Node (lists)
 //into an XML document.
 function NodeToXMLConverter()
 {
-  this.nodeToXML  = function(node)
-  {
-    var xml = null;
-    if (window.ActiveXObject)
+  //Converts a node list into xml
+  this.nodeListToXML = function(list, parentnode) {
+    var xmlstr = "<" + parentnode + ">"
+    
+    for(var i = 0; i < list.length; i++)
+      xmlstr += nodeToString(list[i])
+    
+    return stringToXML(xmlstr + "</" + parentnode + ">") 
+  }
+
+  function nodeToString(node) {
+    if(window.ActiveXObject)
+      return node.xml
+    else
+      return new XMLSerializer().serializeToString(node)
+  }
+
+  this.nodeToXML  = function(node) {
+    return stringToXML(nodeToString(node))
+  }
+
+  function stringToXML(str) {
+    if(window.ActiveXObject)
     {
-      xml = new ActiveXObject("Microsoft.XMLDOM");
-      xml.async = "false";
-      xml.loadXML(node.xml);
+      var xml = new ActiveXObject("Microsoft.XMLDOM")
+      xml.asyc = false
+      xml.loadXML(str)
+      return xml
     }
     else
-      xml = new DOMParser().parseFromString(new XMLSerializer().serializeToString(node),
-                          "text/xml");
-                          
-    return xml;
+      return new DOMParser().parseFromString(str, "text/xml")
   }
 }
 
@@ -177,6 +199,23 @@ function XPathHelper(xml)
         return xmlDoc.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, result);
     }
     return null;
+  }
+  
+  //Returns all instances found by the given xpath expression as an array.
+  this.findAll = function (xpath, result) {
+    var results = this.evaluate(xpath, result)
+    if(window.ActiveXObject && results)
+      return results
+    else if(!window.ActiveXObject)
+    {
+      var nodes = []
+      var node;
+      while(node = results.iterateNext())
+        nodes.push(node)
+      return nodes
+    }
+    else
+      return []
   }
 
   //Returns the first instance matched by the given xpath expression.
@@ -232,7 +271,12 @@ function HymnBook(fname)
 
   //Processes the given XML node with the named stylesheet
   function processWithXSL(node, xslt) {
-    var xml = new NodeToXMLConverter().nodeToXML(node);
+    var xml = null
+    if(node instanceof Array)
+      xml = new NodeToXMLConverter().nodeListToXML(node, "hymns")
+    else
+      xml = new NodeToXMLConverter().nodeToXML(node);
+    
     var processor = new XSLTHelper(loadXMLDoc(xslt, false));
     return processor.process(xml);
   }
@@ -246,11 +290,30 @@ function HymnBook(fname)
   this.searchByCategory = function(str) {
     alert("Searching by category")
   }
- 
-  //Searches hymn by content 
+
+  //Searches a hymn by verse content.
+  //Uses javascript for the search. 
   this.searchByContent = function(str) {
-    alert("Searching by content")
+    var hymns = []
+    var regex = new RegExp(searchEscape(str), "i")
+    var all = new XPathHelper(xmlDoc).findAll('//hymn')
+    for(var i = 0; i < all.length; i++)
+    {
+      var verses = all[i].getElementsByTagName("verse")
+      for(var v = 0; v < verses.length; v++)
+      {
+        var content = (window.ActiveXObject) ? verses[v].text : verses[v].textContent
+        if(content.match(regex))
+        {
+          hymns.push(all[i])
+          break
+        } 
+      } 
+    }
+    if(hymns.length > 0)
+      app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
   }
+
 
   //Searches a hymn by number 
   this.searchByNumber = function(num) {
@@ -261,6 +324,13 @@ function HymnBook(fname)
       if(hymn)
         app.presentSearchResult(processWithXSL(hymn, "xml/hymn.xsl"))
     }
+  }
+
+  //Escapes a string to make it suitable as a hymn search regex.
+  //Inserts word boundaries, allows wildcards (only as suffix)
+  //and "and" functionality by using commas.
+  function searchEscape(str) {
+    return RegExp.escape(str).replace("\\,", ".*").replace("\\*", "\\w*").replace(/(\w+)(\\w\*)*/, "\\b$1$2\\b")
   }
 
   //Searches for a particular verse in a hymn

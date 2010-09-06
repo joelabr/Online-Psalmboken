@@ -196,3 +196,13 @@ ul.inlineMenu > li
 {
   margin-bottom: 0.15em;
 }
+
+ul.hymnlist
+{
+  margin-top:0.5em;
+}
+
+ul.hymnlist li 
+{
+  margin-bottom: 0.5em;
+}
