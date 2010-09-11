@@ -25,7 +25,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:template match="hymn">
     <li>
-      <a href="javascript:nop()" onclick="app.searchHymn('{number}')">
+      <a href="javascript:void(0)" onclick="app.searchHymn('{number}')">
         <xsl:value-of select="number" />
         .
         <xsl:value-of select="title" />

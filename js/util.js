@@ -5,7 +5,3 @@
 RegExp.escape = function(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
-
-//A NO-OP
-function nop() {}
-
