@@ -153,20 +153,20 @@ a.playPauseImage
 
 a.imageButton
 {
-  filter: alpha(opacity=20);
-  opacity: 0.2;
-}
-
-a.imageButton:hover
-{
   filter: alpha(opacity=40);
   opacity: 0.4;
 }
 
-a.imageButton:active
+a.imageButton:hover
 {
   filter: alpha(opacity=60);
   opacity: 0.6;
+}
+
+a.imageButton:active
+{
+  filter: alpha(opacity=80);
+  opacity: 0.8;
 }
 
 ul.hymntext
