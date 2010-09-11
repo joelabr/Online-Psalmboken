@@ -58,14 +58,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   </xsl:template>
   
   <xsl:template match="author">
-    <xsl:choose>
-      <xsl:when test=".=//author[last()]">
-        <xsl:value-of select="name" />(<xsl:value-of select="year" />)
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="name" />(<xsl:value-of select="year" />), 
-      </xsl:otherwise>
-    </xsl:choose>
+    <a href="javascript:nop()" onclick="app.searchHymn('author:{name}')">
+      <xsl:value-of select="name" />
+    </a>
+    <xsl:if test="year > 0">(<xsl:value-of select="year" />)</xsl:if>
+    <xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
   
 </xsl:stylesheet>

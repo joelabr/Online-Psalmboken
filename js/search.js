@@ -283,7 +283,14 @@ function HymnBook(fname)
   
   //Searches hymn by author
   this.searchByAuthor = function(str) {
-    alert("Searching by author")
+    var author = str.replace(/author:\s*/gi, "")
+    if (xmlDoc != null)
+    {
+      var xpath = "/hymns/hymn[contains(authors/author/name, '" + author + "')]";
+      var hymns = new XPathHelper(xmlDoc).findAll(xpath);
+      if(hymns.length > 0)
+        app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
+    }
   }
 
   //Searches hymn by category
