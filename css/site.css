@@ -213,13 +213,13 @@ ul.hymnlist li
   padding-top:1em;
 }
 
-#searchtips ul
+ul.commonlist
 {
   list-style: disc outside none;
   margin-left:1em;
 }
 
-#searchtips li
+ul.commonlist li
 {
   padding:0.1em;
 }

@@ -6,7 +6,7 @@ var translations =
   "title":"The Online-Hymnbook",
   "frontpage":"Frontpage",
   "searchhymn":"Search hymn",
-  "welcometext":"Welcome to the Online-Hymnbook! Here you will find texts, and possibly melodies, for different hymns from different hymnbooks! We hope you will find what you are looking for!",
+  "welcometext":"Welcome to the Online-Hymnbook! Here you will find texts, and possibly melodies, for different hymns from different hymnbooks. We hope you will find what you are looking for!",
   "hymnbook":"Hymnbook:",
   "searchquery":"Search query:",
   "searchbutton":"Search",
@@ -20,22 +20,32 @@ var translations =
   "category":"Category:&#009;",
   "melody":"Melody",
   "downloadmelody":"Download melody",
-  "about":"About",
-  "abouttext":"Lorem ipsum dolor...",
-  "privacytitle":"We have to admit that we store some data on your computer. Here you are able to read about <strong>exactly</strong> what we are storing, so please read everything!",
   "cookiesheader":"About cookies",
   "cookiestext":"Lorem ipsum dolor...",
-  "searchtips": 
-    "<p>" +
-    "  Your search resulted in no hits. Some search tips:" +
-    "</p>" +
-    "<ul>" +
-      "<li>Use search words of three letters or more.</li>" +
-      "<li>Search by author: <em>author:Wallin</em>.</li>" +
-      "<li>Search by category: <em>category:Guds lov</em>.</li>" + 
-      "<li>Search by hymnnumber: <em>123</em>.</li>" +
-      "<li>Search by content: <em>Tryggare kan ingen vara</em>.</li>" +
-    "</ul>"
+  "searchtiptext":"Your search resulted in no hits. Some search tips:",
+  "searchtip1":"Use search words of three letters or more.",
+  "searchtip2":"Search by author: <em>author:Wallin</em>",
+  "searchtip3":"Search by category: <em>category:Guds lov</em>",
+  "searchtip4":"Search by hymnnumber: <em>123</em>",
+  "searchtip5":"Search by content: <em>Tryggare kan ingen vara</em>",
+  "aboutcookies":"About cookies",
+  "cookiestext":"<p>The Online-Hymnbook uses cookies in order to store " +
+  "your language settings, as well as your most recently visited page." +
+  "</p> Cookies are small textfiles that are stored locally on your " +
+  "computer. You can turn off cookies in your browser if you do not want " +
+  "the Online-Hymnbook to store this kind of information. Please note " +
+  "that the Online-Hymnbook might not work as expected if cookies are " +
+  "turned off.",
+  "about":"About",
+  "abouttext":"The Online-Hymnbook is a hymn searching tool. You can " +
+    "search hymns by using hymn numbers, hymn content, author name or " +
+    "category name. For each hymn, you will find (if possible) all verses,"+
+    "hymn authors, and hymn melodies.",
+  "expectedfeatures":"The Online-Hymnbook is currently alpha software. " +
+    "Expect the following from version 1.0:",
+  "expfeat1":"The ability to search through all of the Swedish church's hymnbook from 1937.",
+  "expfeat2":"The ability to play and download hymn melodies.",
+  "expfeat3":"The ability to show note sheets."
 };
 
 //Add locale
