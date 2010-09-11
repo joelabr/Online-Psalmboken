@@ -11,6 +11,8 @@ var translations =
   "searchquery":"Search query:",
   "searchbutton":"Search",
   "searchresults":"Search results",
+  "searchresultsfor":"Search results for ",
+  "clearsearchresults":"Clear search results",
   "showresults":"Show/Hide results",
   "showmelody":"Show/Hide note sheet",
   "playpause":"Play/Pause",

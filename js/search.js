@@ -21,7 +21,36 @@ app = new function Application() {
   function addSearchResult(element)
   {
     resultDivs.push(element)
+    
+    var test  = element.getElementsByTagName("span");
+    
+    if (test.length > 0)
+      for (var i = 0; i < test.length; i++)
+        if (test[i].getAttribute("data-name") == "searchquery")
+          test[i].innerHTML = "\"" + document.hymnform.searchquery.value + "\"";
+    
     processSearchResults()
+  }
+  
+  this.clearSearchResults = function()
+  {    
+    var searchResults = document.getElementById("searchresults");
+    if (searchResults)
+    {
+      var div  = searchResults.getElementsByTagName("div")[0];
+      var sibling = div.nextSibling;
+      
+      while (resultDivs.length > 0)
+      {
+        this.removeSearchResult(div.id);
+        div = sibling;
+        
+        if (sibling != null)
+          sibling = div.nextSibling;
+      }
+    }
+      
+    processSearchResults();
   }
 
   /*
@@ -58,7 +87,7 @@ app = new function Application() {
     }
     
     jsI18n.processPage()
-    showElement("searchresults_h", true)
+    showElement("searchresults_p", true)
     showElement("searchresults", true)
   }
 
@@ -76,7 +105,7 @@ app = new function Application() {
     
     if (resultDivs.length == 0)
     {
-      showElement("searchresults_h", false)
+      showElement("searchresults_p", false)
       showElement("searchresults", false)
     }
   }

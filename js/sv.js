@@ -11,6 +11,8 @@ var translations =
   "searchquery":"Söktext:",
   "searchbutton":"Sök",
   "searchresults":"Sökresultat",
+  "searchresultsfor":"Sökresultat för ",
+  "clearsearchresults":"Rensa sökresulat",
   "showresults":"Visa/Göm resultat",
   "showmelody":"Visa/Göm noter",
   "playpause":"Spela/Pausa",

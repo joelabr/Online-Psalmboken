@@ -194,12 +194,14 @@ ul.inlineMenu > li
 
 .lessMarginBottom
 {
-  margin-bottom: 0.15em;
+  margin-bottom: 0.25em;
 }
 
 ul.hymnlist
 {
   margin-top:0.5em;
+  max-height: 200px;
+  overflow: auto;
 }
 
 ul.hymnlist li 

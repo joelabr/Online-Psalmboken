@@ -92,6 +92,11 @@ form > p
   font-size: 0.80em;
 }
 
+.largeText
+{
+  font-size: 1.438em;
+}
+
 a.smallText
 {
   color: #DAA520;
