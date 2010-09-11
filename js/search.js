@@ -288,7 +288,14 @@ function HymnBook(fname)
 
   //Searches hymn by category
   this.searchByCategory = function(str) {
-    alert("Searching by category")
+    var category = str.replace(/category:\s*/gi, "")
+    if (xmlDoc != null)
+    {
+      var xpath = "/hymns/hymn[contains(category, '" + category + "')]";
+      var hymns = new XPathHelper(xmlDoc).findAll(xpath);
+      if(hymns.length > 0)
+        app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
+    }
   }
 
   //Searches a hymn by verse content.
