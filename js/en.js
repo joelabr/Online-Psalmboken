@@ -24,7 +24,18 @@ var translations =
   "abouttext":"Lorem ipsum dolor...",
   "privacytitle":"We have to admit that we store some data on your computer. Here you are able to read about <strong>exactly</strong> what we are storing, so please read everything!",
   "cookiesheader":"About cookies",
-  "cookiestext":"Lorem ipsum dolor..."
+  "cookiestext":"Lorem ipsum dolor...",
+  "searchtips": 
+    "<p>" +
+    "  Your search resulted in no hits. Some search tips:" +
+    "</p>" +
+    "<ul>" +
+      "<li>Use search words of three letters or more.</li>" +
+      "<li>Search by author: <em>author:Wallin</em>.</li>" +
+      "<li>Search by category: <em>category:Guds lov</em>.</li>" + 
+      "<li>Search by hymnnumber: <em>123</em>.</li>" +
+      "<li>Search by content: <em>Tryggare kan ingen vara</em>.</li>" +
+    "</ul>"
 };
 
 //Add locale

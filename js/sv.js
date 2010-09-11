@@ -24,7 +24,18 @@ var translations =
   "abouttext":"Lorem ipsum dolor...",
   "privacytitle":"Lorem ipsum dolor...",
   "cookiesheader":"Om cookies",
-  "cookiestext":"Lorem ipsum dolor..."
+  "cookiestext":"Lorem ipsum dolor...",
+  "searchtips": 
+    "<p>" +
+    "  Din sökning gav inga träffar. Några söktips:" +
+    "</p>" +
+    "<ul>" +
+      "<li>Använd sökord på tre bokstäver eller mer.</li>" +
+      "<li>Sök författare: <em>author:Wallin</em>.</li>" +
+      "<li>Sök kategori: <em>category:Guds lov</em>.</li>" + 
+      "<li>Sök psalmnummer: <em>123</em>.</li>" +
+      "<li>Sök efter innehåll: <em>än Guds lilla</em>.</li>" +
+    "</ul>"
 };
 
 //Add locale

@@ -97,11 +97,12 @@ app = new function Application() {
     }
   }
 
-
   //Searches for a hymn 
   //If the optional argument is given,
   //that text will be used as the search text.
   this.searchHymn = function(searchtext) {
+    document.getElementById('searchtips').style.display='none'
+
     if(searchtext != null)
       document.hymnform.searchquery.value = searchtext
 
@@ -124,6 +125,10 @@ app = new function Application() {
     //Focus on query
     document.hymnform.searchquery.focus()
     document.hymnform.searchquery.select()
+  }
+
+  this.showSearchTips = function() {
+    document.getElementById('searchtips').style.display='block'
   }
 }
 
@@ -290,6 +295,8 @@ function HymnBook(fname)
       var hymns = new XPathHelper(xmlDoc).findAll(xpath);
       if(hymns.length > 0)
         app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
+      else
+        app.showSearchTips()
     }
   }
 
@@ -302,6 +309,8 @@ function HymnBook(fname)
       var hymns = new XPathHelper(xmlDoc).findAll(xpath);
       if(hymns.length > 0)
         app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
+      else
+        app.showSearchTips()
     }
   }
 
@@ -326,6 +335,8 @@ function HymnBook(fname)
     }
     if(hymns.length > 0)
       app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
+    else
+      app.showSearchTips()
   }
 
 
@@ -337,6 +348,8 @@ function HymnBook(fname)
       var hymn = new XPathHelper(xmlDoc).findFirst(xpath);
       if(hymn)
         app.presentSearchResult(processWithXSL(hymn, "xml/hymn.xsl"))
+      else
+        app.showSearchTips()
     }
   }
 
