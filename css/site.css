@@ -230,3 +230,13 @@ ul.commonlist li
 {
   margin: 0.25em 0;
 }
+
+.hymnselect 
+{
+  min-width:50px;
+}
+
+.inline
+{
+  display:inline;
+}

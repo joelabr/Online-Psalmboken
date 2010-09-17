@@ -32,6 +32,14 @@ app = new function Application() {
     processSearchResults()
   }
   
+  //Changes melody
+  this.changeMelody = function(id, melody_id) {
+    var audio = document.getElementById('audio_'+id)
+    audio.pause()
+    audio.src="hymns/"+melody_id
+    audio.load()
+  }
+  
   this.clearSearchResults = function()
   {    
     var searchResults = document.getElementById("searchresults");
@@ -65,8 +73,19 @@ app = new function Application() {
     //Global handler (must be added last!)
     addSearchMethod(/.+/, "searchByContent")
   }()
-  //this.init()
-  
+ 
+  /*
+    Plays/pauses a melody. The ID if the hymn
+    to be played is given as the first parameter.
+  */ 
+  this.playPauseMelody = function(id) {
+    audio = document.getElementById('audio_'+id)
+    if(audio.paused)
+      audio.play()
+    else
+      audio.pause()
+  }
+
   //Presents the given data to the user
   this.presentSearchResult = function(data)
   {

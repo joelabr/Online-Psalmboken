@@ -9,20 +9,26 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:template match="/">
     <div id="{$divID}" class="box">
-      <p class="lessMarginBottom">
+      <div class="lessMarginBottom">
         <a href="javascript:void(0)" onclick="app.searchHymn('category:{hymn/category}')"><xsl:value-of select="hymn/category" /></a> &#160;&#187;&#160; 
         <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
         <xsl:value-of select="hymn/title" /></span>
         <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
         <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
         <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
-        <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: void(0);" title=""></a>
-        <!-- <select class="rightAlign lessMarginTop">
-          <xsl:for-each select="hymn/melodies/melody">
-            <option value="{id}"><xsl:value-of select="id" />, <xsl:value-of select="author" /></option>
-          </xsl:for-each>
-        </select> -->
-      </p>
+        <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title=""></a>
+        <xsl:if test="count(hymn/melodies/melody) != 0">
+          <div class="inline rightAlign">
+            <span data-trans="melody"></span>
+            <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">
+              <xsl:for-each select="hymn/melodies/melody">
+                <option value="{../../number}{id}.ogg"><xsl:value-of select="id" /></option>
+              </xsl:for-each>
+            </select>
+            <audio id="audio_{$hymnID}" src="hymns/{hymn/number}A.ogg" ><span data-trans="oldbrowser" /></audio>
+          </div>
+        </xsl:if>
+      </div>
       
       <div id="{$hymnID}">
         <div id="{$melodyID}" class="hymnmelody hidden underline">
