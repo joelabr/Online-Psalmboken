@@ -16,16 +16,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
         <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
         <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
-        <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title=""></a>
         <xsl:if test="count(hymn/melodies/melody) != 0">
+          <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title=""></a>
           <div class="inline rightAlign">
             <span data-trans="melody"></span>
             <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">
               <xsl:for-each select="hymn/melodies/melody">
-                <option value="{../../number}{id}.ogg"><xsl:value-of select="id" /></option>
+                <option value="{id}.ogg"><xsl:value-of select="id" /></option>
               </xsl:for-each>
             </select>
-            <audio id="audio_{$hymnID}" src="hymns/{hymn/number}A.ogg" ><span data-trans="oldbrowser" /></audio>
+            <audio id="audio_{$hymnID}" src="hymns/{hymn/melodies/melody/id}.ogg" ><span data-trans="oldbrowser" /></audio>
           </div>
         </xsl:if>
       </div>
