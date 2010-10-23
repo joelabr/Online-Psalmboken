@@ -67,7 +67,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <a href="javascript:void(0)" onclick="app.searchHymn('author:{name}')">
       <xsl:value-of select="name" />
     </a>
-    <xsl:if test="year > 0">(<xsl:value-of select="year" />)</xsl:if>
+    <xsl:if test="string-length(year) > 0">(<xsl:value-of select="year" />)</xsl:if>
     <xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
   
