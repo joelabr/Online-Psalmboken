@@ -24,7 +24,8 @@
     </verses>
     <melodies>
       <melody>
-        <id>A</id>
+        <id>MelodyName</id>
+        <file>MelodyFile.ogg</file>
         <author>Melody Author</author>
         <sheet>60</sheet>
       </melody>

@@ -1,4 +1,4 @@
-
+/** Deprecated. Used as reference material for future work */
 function HymnEditor()
 {
   this.hymns = new Array()

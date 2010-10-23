@@ -6,7 +6,7 @@ var translations =
   "title":"Online-Psalmboken",
   "frontpage":"Förstasidan",
   "searchhymn":"Sök psalm",
-  "welcometext":"Välkommen till Online-Psalmboken! Här hittar du texter och melodier, till olika psalmer från olika psalmböcker. Vi hoppas att du hittar den psalm du söker!",
+  "welcometext":"Välkommen till Online-Psalmboken! Här hittar du texter och melodier till olika psalmer från olika psalmböcker. Vi hoppas att du hittar den psalm du söker!",
   "hymnbook":"Psalmbok:",
   "searchquery":"Söktext:",
   "searchbutton":"Sök",

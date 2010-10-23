@@ -22,10 +22,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <span data-trans="melody"></span>
             <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">
               <xsl:for-each select="hymn/melodies/melody">
-                <option value="{id}.ogg"><xsl:value-of select="id" /></option>
+                <option value="{file}"><xsl:value-of select="id" /></option>
               </xsl:for-each>
             </select>
-            <audio id="audio_{$hymnID}" src="hymns/{hymn/melodies/melody/id}.ogg" ><span data-trans="oldbrowser" /></audio>
+            <audio id="audio_{$hymnID}" src="hymns/{hymn/melodies/melody/file}" ><span data-trans="oldbrowser" /></audio>
           </div>
         </xsl:if>
       </div>
