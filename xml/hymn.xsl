@@ -42,10 +42,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <div class="author">
           <xsl:apply-templates select="hymn/authors/author" />
         </div>
-
-        <ul class="inlineMenu overline">
-          <li class="rightAlign"><a data-trans="downloadmelody" href="#"></a></li>
-        </ul>
       </div>
     </div>
   </xsl:template>
