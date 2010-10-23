@@ -15,8 +15,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:value-of select="hymn/title" /></span>
         <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
         <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
-        <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
         <xsl:if test="count(hymn/melodies/melody) != 0">
+          <xsl:if test="string(hymn/melodies/melody/sheet) != ''">
+            <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
+          </xsl:if>
           <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title=""></a>
           <div class="inline rightAlign">
             <span data-trans="melody"></span>
@@ -42,9 +44,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         </div>
 
         <ul class="inlineMenu overline">
-          <xsl:for-each select="hymn/melodies/melody">
-            <li><a href="psalmer/{id}.mid"><span data-trans="melody"></span> - <xsl:value-of select="id" /></a></li>
-          </xsl:for-each>
           <li class="rightAlign"><a data-trans="downloadmelody" href="#"></a></li>
         </ul>
       </div>
