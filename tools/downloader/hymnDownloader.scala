@@ -129,11 +129,6 @@ object HymnDownloader
       <authors>{ authorsXML }</authors>
       <verses>{ versesXML }</verses>
       <melodies>
-        <melody>
-          <id>A</id>
-          <author></author>
-          <sheet>{ number }</sheet>
-        </melody>
       </melodies> 
     </hymn>
   }
