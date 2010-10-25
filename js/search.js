@@ -224,7 +224,7 @@ function NodeToXMLConverter()
     if(window.ActiveXObject)
     {
       var xml = new ActiveXObject("Microsoft.XMLDOM")
-      xml.asyc = false
+      xml.async = false
       xml.loadXML(str)
       return xml
     }
