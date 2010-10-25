@@ -13,6 +13,9 @@ function changePage(page)
       
       jsI18n.processPage();
       createCookie("page", page, 0.42);
+    
+      if(page == "frontpage.html")
+        loadNews();
     }
   }
 }
@@ -80,6 +83,24 @@ function toggleVisibility(id)
       id.style.visibility = "hidden";
     }
   }
+}
+
+/**
+  Loads news from twitter
+**/
+function loadNews()
+{
+  //We use hashtags to filter by language
+  var lang_regex = new RegExp("#" + jsI18n.locale, "m");
+  getTwitters('news', {
+      id: Config.news_account,
+      count: 3,
+      enableLinks: false,
+      filter: lang_regex,
+      ignoreReplies: true,
+      clearContents: true,
+      template: "<span class=\"date\">%time%</span><span class\"content\">%text%</span>"
+    });
 }
 
 /*  

@@ -47,7 +47,9 @@ var translations =
     "Expect the following from version 1.0:",
   "expfeat1":"The ability to search through all of the Swedish church's hymnbook from 1937.",
   "expfeat2":"The ability to play and download hymn melodies.",
-  "expfeat3":"The ability to show note sheets."
+  "expfeat3":"The ability to show note sheets.",
+  "news":"News",
+  "newsloading": "News are loading..."
 };
 
 //Add locale

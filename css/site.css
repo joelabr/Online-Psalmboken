@@ -240,3 +240,17 @@ ul.commonlist li
 {
   display:inline;
 }
+
+/*
+  News
+*/
+#news li
+{
+  padding:0.25em 0;
+}
+
+#news .date
+{
+  display:block;
+  color: #C80815;
+}

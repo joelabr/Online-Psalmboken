@@ -43,7 +43,9 @@ var translations =
     "alpha-version. I version 1.0 kan du förvänta dig följande:",
   "expfeat1":"Möjlighet att söka i hela 1937-års psalmbok.",
   "expfeat2":"Möjlighet att spela upp och ladda ner psalmmelodier.",
-  "expfeat3":"Möjlighet att visa psalmmelodiernas noter."
+  "expfeat3":"Möjlighet att visa psalmmelodiernas noter.",
+  "news":"Nyheter",
+  "newsloading": "Nyheter hämtas..."
 };
 
 //Add locale
