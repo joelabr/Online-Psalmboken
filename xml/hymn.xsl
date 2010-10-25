@@ -13,8 +13,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <a href="javascript:void(0)" onclick="app.searchHymn('category:{hymn/category}')"><xsl:value-of select="hymn/category" /></a> &#160;&#187;&#160; 
         <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
         <xsl:value-of select="hymn/title" /></span>
-        <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
-        <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title=""></a>
+        <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
+        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title="">B</a>
         <xsl:if test="count(hymn/melodies/melody) != 0">
           <xsl:apply-templates select="hymn/melodies" />
         </xsl:if>
@@ -41,7 +41,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:if test="string-length(melody/sheet) > 0">
       <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
     </xsl:if>
-    <a data-trans="title=playpause" class="imageButton playPauseImage rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title=""></a>
+    <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title="">A</a>
     <div class="inline rightAlign">
       <span data-trans="melody"></span>
       <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">

@@ -116,59 +116,6 @@ select
   margin: 0.25em;
 }
 
-a.closeImage
-{
-  background-image: url("../img/close.png");
-  margin-top: 0.12em;
-  padding: 5px;
-}
-
-a.expandImage
-{
-  background-image: url("../img/expand.png");
-  margin-top: 0.12em;
-  padding: 5px;
-}
-
-a.collapseImage
-{
-  background-image: url("../img/collapse.png");
-  margin-top: 0.12em;
-  padding: 5px;
-}
-
-a.noteImage
-{
-  background-image: url("../img/note.png");
-  margin-top: 0.12em;
-  padding: 5px;
-}
-
-a.playPauseImage
-{
-  background-image: url("../img/playpause.png");
-  margin-top: 0.12em;
-  padding: 5px 10px;
-}
-
-a.imageButton
-{
-  filter: alpha(opacity=40);
-  opacity: 0.4;
-}
-
-a.imageButton:hover
-{
-  filter: alpha(opacity=60);
-  opacity: 0.6;
-}
-
-a.imageButton:active
-{
-  filter: alpha(opacity=80);
-  opacity: 0.8;
-}
-
 ul.hymntext
 {
   list-style: decimal inside;

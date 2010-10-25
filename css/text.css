@@ -129,3 +129,19 @@ a.darkLink:hover
 {
     color: #C80815;
 }
+
+a.iconFont
+{
+  font-family: "IconFont";
+  color: #999999;
+}
+
+a.iconFont:hover
+{
+  color: #666666;
+}
+
+a.iconFont:active
+{
+  color: #333333;
+}
