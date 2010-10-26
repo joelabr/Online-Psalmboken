@@ -2,8 +2,13 @@
 require('config.php'); //In this file you define $ADMIN_USERS
 
 $realm = "onlinepsalmboken";
+
+//Parse headers directly as PHP_AUTH_DIGEST is not properly set.
+$headers = apache_request_headers();
+if(isset($headers['Authorization']))
+  $digest_data = $headers['Authorization'];
   
-if (empty($_SERVER['PHP_AUTH_DIGEST'])) {
+if (empty($digest_data)) {
     header('HTTP/1.1 401 Unauthorized');
     header('WWW-Authenticate: Digest realm="'.$realm.
            '",qop="auth",nonce="'.uniqid('ps').'",opaque="'.md5($realm).'"');
@@ -11,8 +16,8 @@ if (empty($_SERVER['PHP_AUTH_DIGEST'])) {
     die('Access denied');
 }
 
-// analyze the PHP_AUTH_DIGEST variable
-if (!($data = http_digest_parse($_SERVER['PHP_AUTH_DIGEST'])) ||
+// analyze digest data
+if (!($data = http_digest_parse($digest_data)) ||
     !isset($ADMIN_USERS[$data['username']]))
     die('Wrong Credentials!');
 
