@@ -16,7 +16,7 @@
     <h6>Administrationsverktyg</h6>
     <div class="box">
       <p>
-        <a href="../xml">Ladda ner psalmbok</a><br/>
+        <a href="../xml/hymnbooks/">Ladda ner psalmbok</a><br/>
         <a href="uploadhymnbook.php">Ladda upp psalmbok</a>
       </p>
       <p>
