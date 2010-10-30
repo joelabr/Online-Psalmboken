@@ -8,7 +8,7 @@
   
   if(isset($_FILES["file"])) {
     $uploader = new FileUploader();
-    if($uploader->upload($_FILES["file"], "../xml/", array("text/xml"))) {
+    if($uploader->upload($_FILES["file"], "../xml/hymnbooks/", array("text/xml"))) {
       $form_message = "Filen har laddats upp.";
     }
     else

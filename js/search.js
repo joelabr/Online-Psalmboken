@@ -164,7 +164,7 @@ app = new function Application() {
       if (curHymnBook !== hbname)
       {
         showElement("loadingImage", true);
-        hymnBook  = new HymnBook("xml/" + hbname + ".xml");
+        hymnBook  = new HymnBook("xml/hymnbooks/" + hbname + ".xml");
         showElement("loadingImage", false);
         
         curHymnBook = hbname;
