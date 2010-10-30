@@ -49,7 +49,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <option value="{file}"><xsl:value-of select="id" /></option>
         </xsl:for-each>
       </select>
-      <audio id="audio_{$hymnID}" src="hymns/{melody/file}" ><span data-trans="oldbrowser" /></audio>
+      <audio id="audio_{$hymnID}" src="hymns/ogg/{melody/file}" ><span data-trans="oldbrowser" /></audio>
     </div>
   </xsl:template>
   

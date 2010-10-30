@@ -36,7 +36,7 @@ app = new function Application() {
   this.changeMelody = function(id, melody_id) {
     var audio = document.getElementById('audio_'+id)
     audio.pause()
-    audio.src="hymns/"+melody_id
+    audio.src="hymns/ogg/"+melody_id
     audio.load()
   }
   
