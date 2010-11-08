@@ -12,8 +12,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <span class="colorRed" data-trans="searchresultsfor"></span>
         <span class="colorRed" data-name="searchquery"></span>
         (<xsl:value-of select="count(/hymns/hymn)" />)
-        <a class="imageButton closeImage rightAlign" href="javascript: app.removeSearchResult('{$divID}');"></a>
-        <a data-trans="title=showresults" class="imageButton expandImage rightAlign" href="javascript: toggleVisibility('{$hymnsID}');" title=""></a>
+        <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
+        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnsID}');" title="">B</a>
       </p>
       
       <div id="{$hymnsID}">
