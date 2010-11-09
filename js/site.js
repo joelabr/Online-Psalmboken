@@ -241,3 +241,12 @@ var addEvent = (function( window, document ) {
         };  
     }
 })( this, document );
+
+// Compability functions
+/*
+  Check if the browser supports the audio-tag
+*/
+function supports_audio()
+{
+  return !!document.createElement("audio").pause;
+}
