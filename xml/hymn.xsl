@@ -39,9 +39,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:template match="melodies">
     <xsl:if test="string-length(melody/sheet) > 0">
-      <a data-trans="title=showmelody" class="imageButton noteImage rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title=""></a>
+      <a data-trans="title=showmelody" class="iconFont rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title="">E</a>
     </xsl:if>
-    <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title="">A</a>
+    <xsl:if test="string-length(melody/file) > 0">
+      <a data-trans="title=downloadhymn" class="iconFont rightAlign" href="hymns/midi/{substring-before(melody/file, '.')}.mid" title="">D</a>
+      <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title="">A</a>
+    </xsl:if>
     <div class="inline rightAlign">
       <span data-trans="melody"></span>
       <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">

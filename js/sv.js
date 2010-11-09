@@ -16,6 +16,7 @@ var translations =
   "showresults":"Visa/Göm resultat",
   "showmelody":"Visa/Göm noter",
   "playpause":"Spela/Pausa",
+  "downloadhymn":"Ladda hem melodi",
   "hits":"Träffar:&#009;",
   "hymnnumber":"Psalm:&#009;",
   "hymntitle":"Titel:&#009;",

@@ -8,28 +8,18 @@ Foundry     : httpfontstructfontshopcom
 Foundry URL : httpwwwfontshopcom
 </metadata>
 <defs>
-<font id="webfont8Mg55YCl" horiz-adv-x="320" >
+<font id="webfont9AWVzBk7" horiz-adv-x="640" >
 <font-face units-per-em="1024" ascent="819" descent="-205" />
-<missing-glyph horiz-adv-x="500" />
-<glyph unicode=" " />
-<glyph unicode="A" horiz-adv-x="1152" d="M704 128v96h384v-96h-384zM704 320v96h384v-96h-384zM0 0v576l288 -288zM288 0l288 576h96l-288 -576h-96z" />
-<glyph unicode="B" horiz-adv-x="640" d="M288 0q-14 0 -23 9t-9 23v224h-224q-14 0 -23 9t-9 23v64q0 13 9 22q9 10 23 10h224v224q0 13 9 22q9 10 23 10h64q13 0 22 -10q10 -9 10 -22v-224h224q13 0 22 -10q10 -9 10 -22v-64q0 -14 -10 -23q-9 -9 -22 -9h-224v-224q0 -14 -10 -23q-9 -9 -22 -9h-64z" />
-<glyph unicode="C" horiz-adv-x="640" d="M32 0q-14 0 -23 9t-9 23v32l224 224l-224 224v32q0 13 9 22q9 10 23 10h32l224 -224l224 224h32q13 0 22 -10q10 -9 10 -22v-32l-224 -224l224 -224v-32q0 -14 -10 -23q-9 -9 -22 -9h-32l-224 224l-224 -224h-32z" />
-<glyph unicode="&#xa0;" />
-<glyph unicode="&#x2000;" />
-<glyph unicode="&#x2001;" horiz-adv-x="640" />
-<glyph unicode="&#x2002;" />
-<glyph unicode="&#x2003;" horiz-adv-x="640" />
-<glyph unicode="&#x2004;" horiz-adv-x="213" />
-<glyph unicode="&#x2005;" horiz-adv-x="160" />
-<glyph unicode="&#x2006;" horiz-adv-x="106" />
-<glyph unicode="&#x2007;" horiz-adv-x="106" />
-<glyph unicode="&#x2008;" horiz-adv-x="80" />
-<glyph unicode="&#x2009;" horiz-adv-x="128" />
-<glyph unicode="&#x200a;" horiz-adv-x="35" />
+<missing-glyph horiz-adv-x="320" />
+<glyph unicode=" "  horiz-adv-x="320" />
+<glyph unicode="&#x09;" horiz-adv-x="320" />
+<glyph unicode="&#xa0;" horiz-adv-x="320" />
+<glyph unicode="A" horiz-adv-x="1152" d="M704 128v96h384v-96h-384zM704 320v96h384v-96h-384zM0 0v576l288 -288l-288 -288v0zM288 0l288 576h96l-288 -576h-96z" />
+<glyph unicode="B" d="M288 0q-14 0 -23 9t-9 23v224h-224q-14 0 -23 9t-9 23v64q0 13 9 22q9 10 23 10h224v224q0 13 9 22q9 10 23 10h64q13 0 22 -10q10 -9 10 -22v-224h224q13 0 22 -10q10 -9 10 -22v-64q0 -14 -10 -23q-9 -9 -22 -9h-224v-224q0 -14 -10 -23q-9 -9 -22 -9h-64z" />
+<glyph unicode="C" d="M32 0q-14 0 -23 9t-9 23v32l224 224l-224 224v32q0 13 9 22q9 10 23 10h32l224 -224l224 224h32q13 0 22 -10q10 -9 10 -22v-32l-224 -224l224 -224v-32q0 -14 -10 -23q-9 -9 -22 -9h-32l-224 224l-224 -224h-32z" />
+<glyph unicode="D" horiz-adv-x="704" d="M480 64v224h-320v-224h320zM448 448v128h-256v-128h256zM576 64v512h-64v-160q0 -14 -10 -23q-9 -9 -22 -9h-320q-14 0 -23 9t-9 23v160h-64v-512h32v256l32 32h384l32 -32v-256h32zM0 0v640h576l64 -64v-576h-640z" />
+<glyph unicode="E" horiz-adv-x="576" d="M64 0q-27 0 -46 18q-18 19 -18 46q0 26 18 45q19 19 46 19v416q0 13 9 22q9 10 23 10h384q13 0 22 -10q10 -9 10 -22v-416q0 -27 -19 -46q-19 -18 -45 -18q-27 0 -46 18q-18 19 -18 46q0 26 18 45q19 19 46 19v320h-320v-448q0 -27 -19 -46q-19 -18 -45 -18v0z" />
 <glyph unicode="&#x2013;" horiz-adv-x="512" d="M102 256v102h308v-102h-308z" />
 <glyph unicode="&#x2014;" horiz-adv-x="1024" d="M102 256v102h820v-102h-820z" />
-<glyph unicode="&#x202f;" horiz-adv-x="128" />
-<glyph unicode="&#x205f;" horiz-adv-x="160" />
 </font>
 </defs></svg> 

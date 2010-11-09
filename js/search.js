@@ -35,9 +35,27 @@ app = new function Application() {
   //Changes melody
   this.changeMelody = function(id, melody_id) {
     var audio = document.getElementById('audio_'+id)
-    audio.pause()
-    audio.src="hymns/ogg/"+melody_id
-    audio.load()
+    if (!!document.createElement("audio").src)
+    {
+        audio.pause()
+        audio.src="hymns/ogg/"+melody_id
+        audio.load()
+    }
+    
+    // Change download link
+    var parent    = audio.parentNode.parentNode;
+    var elements  = parent.getElementsByTagName("a");
+    var midi_file = melody_id.substring(0, melody_id.indexOf(".")) + ".mid";
+    
+    for (var i = 0, found = false; i < elements.length && !found; i++)
+    {
+      if (elements[i].innerHTML === "D")
+      {
+        elements[i].href = "hymns/midi/" + midi_file;
+        
+        found = true;
+      }
+    }
   }
   
   this.clearSearchResults = function()
