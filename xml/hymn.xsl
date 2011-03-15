@@ -34,6 +34,16 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <div class="author">
           <xsl:apply-templates select="hymn/authors/author" />
         </div>
+        <xsl:if test="contains(hymn/melodies/melody[1]/file, '_')">
+          <p class="overline smallText">
+            <span data-trans="samemelody">Psalmer som kan sjungas med samma melodi: </span>
+            <ul class="inlineMenu">
+            <!-- <xsl:call-template name="splitMelody">
+              <xsl:with-param name="inputString" select="substring-before(hymn/melodies/melody[1]/file, '.ogg')" />
+            </xsl:call-template> -->
+            </ul>
+          </p>
+        </xsl:if>
         <!-- <div class="overline">
           <a href="javascript:void(0)" onclick="app.sendErrorReport('')">Skicka felrapport</a>
         </div> -->
@@ -97,4 +107,24 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
   
+  <!-- <xsl:template name="splitMelody">
+    <xsl:param name="inputString"></xsl:param>
+    <xsl:param name="firstString" select="substring-before($inputString, '_')" />
+    <xsl:param name="remainingString" select="substring-after($inputString, '_')" />
+    
+    <xsl:choose>
+      <xsl:when test="contains($inputString, '_')">        
+        <li><a href="javascript: app.searchHymn('{number($firstString)}')"><xsl:value-of select="number($firstString)" /></a></li>
+
+        <xsl:if test="$remainingString != ''">
+          <xsl:call-template name="splitMelody">
+            <xsl:with-param name="inputString" select="$remainingString" />
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <li><a href="javascript: app.searchHymn('{number($inputString)}')"><xsl:value-of select="number($inputString)" /></a></li>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template> -->
 </xsl:stylesheet>

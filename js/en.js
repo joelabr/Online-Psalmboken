@@ -17,6 +17,7 @@ var translations =
   "showmelody":"Show/Hide note sheet",
   "playpause":"Play/Pause",
   "downloadhymn":"Download melody",
+  "samemelody":"Hymns with the same melody:",
   "hits":"Hits:&#009;",
   "hymnnumber":"Hymnnumber:&#009;",
   "hymntitle":"Title:&#009;",
