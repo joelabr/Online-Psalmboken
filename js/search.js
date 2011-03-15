@@ -38,7 +38,8 @@ app = new function Application() {
     if (supports_audio())
     {
         audio.pause()
-        audio.src="hymns/ogg/"+melody_id
+        var ext = get_audio_extension();
+        audio.src= "hymns/" + ext + "/" + melody_id + "." + ext
         audio.load()
     }
     
@@ -91,6 +92,19 @@ app = new function Application() {
     //Global handler (must be added last!)
     addSearchMethod(/.+/, "searchByContent")
   }()
+
+
+  /*
+    Returns the audio extension (e.g. "ogg")
+    to use.
+  */
+  function get_audio_extension() {
+    var oracle = document.createElement("audio");
+    if(oracle.canPlayType && !!oracle.canPlayType('audio/ogg; codecs="vorbis"'))
+      return "ogg";
+    else
+      return "mp3";
+  }
  
   /*
     Plays/pauses a melody. The ID if the hymn
@@ -175,7 +189,6 @@ app = new function Application() {
 
     var query = document.hymnform.searchquery.value
     var hbname = document.hymnform.hymnbook.value
-
     //TODO: Select hymnbook
     if (hbname)
     {
@@ -260,7 +273,7 @@ function NodeToXMLConverter()
 */
 function stringToElement(str)
 {
-  var temp  = document.createElement("");
+  var temp  = document.createElement("div");
   temp.innerHTML  = str;
   
   return temp;
