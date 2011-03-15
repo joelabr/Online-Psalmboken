@@ -46,13 +46,11 @@ app = new function Application() {
     // Change download link
     var parent    = audio.parentNode.parentNode;
     var elements  = parent.getElementsByTagName("a");
-    var midi_file = melody_id.substring(0, melody_id.indexOf(".")) + ".mid";
-    
     for (var i = 0, found = false; i < elements.length && !found; i++)
     {
       if (elements[i].innerHTML === "D")
       {
-        elements[i].href = "hymns/midi/" + midi_file;
+        elements[i].href = "hymns/midi/" + melody_id + ".mid";
         
         found = true;
       }
