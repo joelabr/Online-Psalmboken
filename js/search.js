@@ -114,7 +114,7 @@ app = new function Application() {
     to be played is given as the first parameter.
   */ 
   this.playPauseMelody = function(id) {
-    audio = document.getElementById('audio_'+id)
+    audio = document.getElementById(id + "_audio")
     if(audio.paused)
       audio.play()
     else
