@@ -46,7 +46,8 @@ var translations =
   "expfeat2":"Möjlighet att spela upp och ladda ner psalmmelodier.",
   "expfeat3":"Möjlighet att visa psalmmelodiernas noter.",
   "news":"Nyheter",
-  "newsloading": "Nyheter hämtas..."
+  "newsloading": "Nyheter hämtas...",
+  "bible-ref":"Bibelreferens"
 };
 
 //Add locale

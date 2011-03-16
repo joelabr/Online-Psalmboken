@@ -50,7 +50,8 @@ var translations =
   "expfeat2":"The ability to play and download hymn melodies.",
   "expfeat3":"The ability to show note sheets.",
   "news":"News",
-  "newsloading": "News are loading..."
+  "newsloading": "News are loading...",
+  "bible-ref": "Bible reference"
 };
 
 //Add locale

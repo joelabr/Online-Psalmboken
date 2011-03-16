@@ -24,6 +24,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <div id="{$melodyID}" class="hymnmelody hidden underline">
           <xsl:apply-templates select="hymn/melodies/melody[1]" />
         </div>
+        <ul class="annotations">
+          <xsl:apply-templates select="hymn/annotations/annotation" />
+        </ul>
         <ul class="hymntext">
           <xsl:apply-templates select="hymn/verses/verse" />
         </ul>
@@ -66,6 +69,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <div class="author">
       <xsl:value-of select="author" />
     </div>
+  </xsl:template>
+  
+  <xsl:template match="annotation">
+    <li title="" data-trans="title={@type}"><xsl:value-of select="." /></li>
   </xsl:template>
   
   <xsl:template match="verse">

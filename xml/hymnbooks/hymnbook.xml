@@ -25,10 +25,13 @@
     <melodies>
       <melody>
         <id>MelodyName</id>
-        <file>MelodyFile.ogg</file>
+        <file>MelodyFile</file>
         <author>Melody Author</author>
         <sheet>60</sheet>
       </melody>
     </melodies>
+    <annotations>
+      <annotation type="bible-ref">Luk. 11</annotation>
+    </annotations>
   </hymn>
 </hymns>
