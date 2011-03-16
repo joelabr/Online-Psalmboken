@@ -33,13 +33,15 @@ app = new function Application() {
   }
   
   //Changes melody
-  this.changeMelody = function(id, melody_id) {
-    var audio = document.getElementById('audio_'+id)
+  this.changeMelody = function(id) {
+    var audio = document.getElementById(id + "_audio")
+    var melodyId = document.getElementById(id + "_melodySelector").value;
+    
     if (supports_audio())
     {
         audio.pause()
         var ext = get_audio_extension();
-        audio.src= "hymns/" + ext + "/" + melody_id + "." + ext
+        audio.src= "hymns/" + ext + "/" + melodyId + "." + ext
         audio.load()
     }
     
@@ -50,11 +52,14 @@ app = new function Application() {
     {
       if (elements[i].innerHTML === "D")
       {
-        elements[i].href = "hymns/midi/" + melody_id + ".mid";
+        elements[i].href = "hymns/midi/" + melodyId + ".mid";
         
         found = true;
       }
     }
+    
+    // Change list with links to hymns with the same melody
+    app.updateListOfHymnsWithSameMelody(id);
   }
   
   this.clearSearchResults = function()
@@ -221,6 +226,42 @@ app = new function Application() {
 
   this.showSearchTips = function() {
     document.getElementById('searchtips').style.display='block'
+  }
+  
+  // Shows all the hymns with the same melody as the hymn with the given ID
+  this.showHymnsWithMelody = function(id)
+  {
+    var showHymnsList = document.getElementById(id + "_showHymnsSameMelody");
+    
+    app.updateListOfHymnsWithSameMelody(id);
+    showElement(id + "_hymnsWithSameMelodyList", true);
+    
+    var anchorParent = showHymnsList.parentNode;
+    anchorParent.removeChild(showHymnsList);
+  }
+  
+  // Updates list of hymns with same melody as the hymn with the given ID
+  this.updateListOfHymnsWithSameMelody = function(id)
+  {
+    var hymnList = document.getElementById(id + "_hymnsWithSameMelodyList");
+    var hymnNumbers = document.getElementById(id + "_melodySelector").value.split("_");
+    
+    hymnList.innerHTML = "";
+    
+    var length, currentHymn;
+    for (var i = 0, length = hymnNumbers.length; i < length; i++)
+    {
+      currentHymn = hymnNumbers[i].match(/\d+/);
+      
+      var tempA = document.createElement("a");
+        tempA.href = "javascript: app.searchHymn('" + new Number(currentHymn) + "')";
+        tempA.innerHTML = new Number(currentHymn);
+        
+      var tempLi = document.createElement("li");
+        tempLi.appendChild(tempA);
+        
+      hymnList.appendChild(tempLi);
+    }
   }
 }
 

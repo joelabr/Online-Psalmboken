@@ -35,14 +35,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <xsl:apply-templates select="hymn/authors/author" />
         </div>
         <xsl:if test="contains(hymn/melodies/melody[1]/file, '_')">
-          <p class="overline smallText">
-            <span data-trans="samemelody">Psalmer som kan sjungas med samma melodi: </span>
-            <ul class="inlineMenu">
-            <!-- <xsl:call-template name="splitMelody">
-              <xsl:with-param name="inputString" select="substring-before(hymn/melodies/melody[1]/file, '.ogg')" />
-            </xsl:call-template> -->
+          <div class="overline smallText">
+            <a id="{$hymnID}_showHymnsSameMelody" data-trans="samemelody" href="javascript: app.showHymnsWithMelody('{$hymnID}')">Visa psalmer som kan sjungas med samma melodi</a>
+            <ul id="{$hymnID}_hymnsWithSameMelodyList" class="hidden inlineMenu">
             </ul>
-          </p>
+          </div>
         </xsl:if>
         <!-- <div class="overline">
           <a href="javascript:void(0)" onclick="app.sendErrorReport('')">Skicka felrapport</a>
@@ -56,17 +53,17 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <a data-trans="title=showmelody" class="iconFont rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title="">E</a>
     </xsl:if>
     <xsl:if test="string-length(melody/file) > 0">
-      <a data-trans="title=downloadhymn" class="iconFont rightAlign" href="hymns/midi/{melody/file}.mid" title="">D</a>
+      <a data-trans="title=downloadmelody" class="iconFont rightAlign" href="hymns/midi/{melody/file}.mid" title="">D</a>
       <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title="">A</a>
     </xsl:if>
     <div class="inline rightAlign">
       <span data-trans="melody"></span>
-      <select class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}', this.value)">
+      <select id="{$hymnID}_melodySelector" class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}')">
         <xsl:for-each select="melody">
           <option value="{file}"><xsl:value-of select="id" /></option>
         </xsl:for-each>
       </select>
-      <audio id="audio_{$hymnID}">
+      <audio id="{$hymnID}_audio">
         <source src="hymns/ogg/{melody/file}.ogg" />
         <source src="hymns/mp3/{melody/file}.mp3" />
         <span data-trans="oldbrowser" />

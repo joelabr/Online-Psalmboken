@@ -17,7 +17,7 @@ var translations =
   "showmelody":"Visa/Göm noter",
   "playpause":"Spela/Pausa",
   "downloadhymn":"Ladda hem melodi",
-  "samemelody":"Psalmer med samma melodi:",
+  "samemelody":"Visa psalmer med samma melodi",
   "hits":"Träffar:&#009;",
   "hymnnumber":"Psalm:&#009;",
   "hymntitle":"Titel:&#009;",
