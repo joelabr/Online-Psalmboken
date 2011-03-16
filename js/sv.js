@@ -47,7 +47,8 @@ var translations =
   "expfeat3":"Möjlighet att visa psalmmelodiernas noter.",
   "news":"Nyheter",
   "newsloading": "Nyheter hämtas...",
-  "bible-ref":"Bibelreferens"
+  "bible-ref":"Bibelreferens",
+  "copyright-to": "Upphovsrättsskyddad till "
 };
 
 //Add locale

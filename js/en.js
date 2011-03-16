@@ -51,7 +51,8 @@ var translations =
   "expfeat3":"The ability to show note sheets.",
   "news":"News",
   "newsloading": "News are loading...",
-  "bible-ref": "Bible reference"
+  "bible-ref": "Bible reference",
+  "copyright-to": "Copyright to "
 };
 
 //Add locale

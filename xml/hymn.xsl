@@ -30,6 +30,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <ul class="hymntext">
           <xsl:apply-templates select="hymn/verses/verse" />
         </ul>
+        <xsl:apply-templates select="hymn/copyright" />
         <div class="author">
           <xsl:apply-templates select="hymn/authors/author" />
         </div>
@@ -77,6 +78,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:template match="verse">
     <li><xsl:value-of select="." /></li>
+  </xsl:template>
+
+  <xsl:template match="copyright">
+    <xsl:if test="number(.) > 0">
+      <div class="copyright">
+        © <span data-trans="copyright-to"></span>
+        <xsl:value-of select="." />
+      </div>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template match="author">
