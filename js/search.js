@@ -21,9 +21,9 @@ app = new function Application() {
   function addSearchResult(element)
   {
     resultDivs.push(element)
-    
+
+    // Insert what we are searching for "Search results for: 'XXX'"
     var test  = element.getElementsByTagName("span");
-    
     if (test.length > 0)
       for (var i = 0; i < test.length; i++)
         if (test[i].getAttribute("data-name") == "searchquery")
@@ -410,7 +410,7 @@ function HymnBook(fname)
   //Processes the given XML node with the named stylesheet
   function processWithXSL(node, xslt) {
     var xml = null
-    if(node instanceof Array)
+    if(node.length != undefined)
       xml = new NodeToXMLConverter().nodeListToXML(node, "hymns")
     else
       xml = new NodeToXMLConverter().nodeToXML(node);
@@ -424,8 +424,8 @@ function HymnBook(fname)
     var author = str.replace(/author:\s*/gi, "")
     if (xmlDoc != null)
     {
-      var xpath = "/hymns/hymn[contains(authors/author/name, '" + author + "')]";
-      var hymns = new XPathHelper(xmlDoc).findAll(xpath);
+      var xpath = "/hymns/hymn[authors/author[contains(name, '" + author + "')]]"
+      var hymns = new XPathHelper(xmlDoc).findAll(xpath)
       if(hymns.length > 0)
         app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))
       else
