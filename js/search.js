@@ -455,16 +455,23 @@ function HymnBook(fname)
     var all = new XPathHelper(xmlDoc).findAll('//hymn')
     for(var i = 0; i < all.length; i++)
     {
-      var verses = all[i].getElementsByTagName("verse")
-      for(var v = 0; v < verses.length; v++)
-      {
-        var content = (window.ActiveXObject) ? verses[v].text : verses[v].textContent
-        if(content.match(regex))
+      // Search in title first
+      var titles = all[i].getElementsByTagName("title")
+      var title = (window.ActiveXObject) ? titles[0].text : titles[0].textContent 
+      if(title.match(regex))
+        hymns.push(all[i])
+      else { //Search in verses if necessary
+        var verses = all[i].getElementsByTagName("verse")
+        for(var v = 0; v < verses.length; v++)
         {
-          hymns.push(all[i])
-          break
+          var content = (window.ActiveXObject) ? verses[v].text : verses[v].textContent
+          if(content.match(regex))
+          {
+            hymns.push(all[i])
+            break
+          } 
         } 
-      } 
+      }
     }
     if(hymns.length > 0)
       app.presentSearchResult(processWithXSL(hymns, "xml/hymns.xsl"))

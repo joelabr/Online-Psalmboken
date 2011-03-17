@@ -27,7 +27,7 @@ var translations =
   "searchtiptext":"Din sökning gav inga träffar. Några söktips:",
   "searchtip1":"Använd sökord på tre bokstäver eller mer.",
   "searchtip2":"Sök författare: <em>author:Wallin</em>",
-  "searchtip3":"Sök kategori: <em>Guds lov</em>",
+  "searchtip3":"Sök kategori: <em>category:Guds lov</em>",
   "searchtip4":"Sök psalmnummer: <em>123</em>",
   "searchtip5":"Sök efter innehåll: <em>än Guds lilla</em>",
   "aboutcookies": "Om kakor",
