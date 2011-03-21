@@ -14,13 +14,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
         <xsl:value-of select="hymn/title" /></span>
         <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
-        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnID}');" title="">B</a>
+        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnID}_hymnDiv');" title="">B</a>
         <xsl:if test="count(hymn/melodies/melody) != 0">
           <xsl:apply-templates select="hymn/melodies" />
         </xsl:if>
       </div>
       
-      <div id="{$hymnID}">
+      <div id="{$divID}_hymnDiv">
         <div id="{$melodyID}" class="hymnmelody hidden underline">
           <xsl:apply-templates select="hymn/melodies/melody[1]" />
         </div>

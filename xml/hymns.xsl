@@ -4,7 +4,6 @@
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:variable name="divID" select="generate-id(/)" />
-  <xsl:variable name="hymnsID" select="generate-id(/hymns/hymn)" />
   
   <xsl:template match="/"> <!-- Matches hymns -->
     <div id="{$divID}" class="box">
@@ -13,10 +12,10 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <span class="colorRed" data-name="searchquery"></span>
         (<xsl:value-of select="count(/hymns/hymn)" />)
         <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
-        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnsID}');" title="">B</a>
+        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$divID}_hymnDiv');" title="">B</a>
       </p>
       
-      <div id="{$hymnsID}">
+      <div id="{$divID}_hymnDiv">
         <ul class="hymnlist">
           <xsl:apply-templates select="hymns/hymn" />
         </ul>

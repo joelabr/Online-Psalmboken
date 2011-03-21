@@ -149,7 +149,7 @@ app = new function Application() {
   {
     if (resultDivs.length > 1)
       for (var i = 0; i < resultDivs.length - 1; i++)
-        showElement(resultDivs[i].getElementsByTagName("div")[0].id, false)
+        showElement(resultDivs[i].id + "_hymnDiv", false);
     
     if (resultDivs.length > 5)
     {
