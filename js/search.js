@@ -22,12 +22,11 @@ app = new function Application() {
   {
     resultDivs.push(element)
 
-    // Insert what we are searching for "Search results for: 'XXX'"
-    var test  = element.getElementsByTagName("span");
-    if (test.length > 0)
-      for (var i = 0; i < test.length; i++)
-        if (test[i].getAttribute("data-name") == "searchquery")
-          test[i].innerHTML = "\"" + document.hymnform.searchquery.value + "\"";
+    // Insert what we are searching for "Search results for: 'XXX'"    
+    var test = document.getElementById(element.id + "_searchquery");
+    
+    if (test)
+      test.innerHTML = "\"" + document.hymnform.searchquery.value + "\"";
     
     processSearchResults()
   }
@@ -36,6 +35,7 @@ app = new function Application() {
   this.changeMelody = function(id) {
     var audio = document.getElementById(id + "_audio")
     var melodyId = document.getElementById(id + "_melodySelector").value;
+    var downloadLink = document.getElementById(id + "_downloadMelody");
     
     if (supports_audio())
     {
@@ -46,17 +46,7 @@ app = new function Application() {
     }
     
     // Change download link
-    var parent    = audio.parentNode.parentNode;
-    var elements  = parent.getElementsByTagName("a");
-    for (var i = 0, found = false; i < elements.length && !found; i++)
-    {
-      if (elements[i].innerHTML === "D")
-      {
-        elements[i].href = "hymns/midi/" + melodyId + ".mid";
-        
-        found = true;
-      }
-    }
+    downloadLink.href = "hymns/midi/" + melodyId + ".mid";
     
     // Change list with links to hymns with the same melody
     app.updateListOfHymnsWithSameMelody(id);

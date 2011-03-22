@@ -9,7 +9,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <div id="{$divID}" class="box">
       <p class="lessMarginBottom">
         <span class="colorRed" data-trans="searchresultsfor"></span>
-        <span class="colorRed" data-name="searchquery"></span>
+        <span id="{$divID}_searchquery" class="colorRed" data-name="searchquery"></span>
         (<xsl:value-of select="count(/hymns/hymn)" />)
         <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
         <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$divID}_hymnDiv');" title="">B</a>

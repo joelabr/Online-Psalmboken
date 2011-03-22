@@ -4,8 +4,6 @@
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:variable name="divID" select="generate-id(/)" />
-  <xsl:variable name="hymnID" select="generate-id(hymn/verses)" />
-  <xsl:variable name="melodyID" select="generate-id(hymn/melodies/melody)" />
   
   <xsl:template match="/">
     <div id="{$divID}" class="box">
@@ -14,14 +12,14 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <span class="colorRed"><xsl:value-of select="hymn/number" />.&#160;
         <xsl:value-of select="hymn/title" /></span>
         <a class="iconFont rightAlign" href="javascript: app.removeSearchResult('{$divID}');">C</a>
-        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$hymnID}_hymnDiv');" title="">B</a>
+        <a data-trans="title=showresults" class="iconFont rightAlign" href="javascript: toggleVisibility('{$divID}_hymnDiv');" title="">B</a>
         <xsl:if test="count(hymn/melodies/melody) != 0">
           <xsl:apply-templates select="hymn/melodies" />
         </xsl:if>
       </div>
       
       <div id="{$divID}_hymnDiv">
-        <div id="{$melodyID}" class="hymnmelody hidden underline">
+        <div id="{$divID}_melodyDiv" class="hymnmelody hidden underline">
           <xsl:apply-templates select="hymn/melodies/melody[1]" />
         </div>
         <ul class="annotations">
@@ -36,8 +34,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         </div>
         <xsl:if test="contains(hymn/melodies/melody[1]/file, '_')">
           <div class="overline smallText">
-            <a id="{$hymnID}_showHymnsSameMelody" data-trans="samemelody" href="javascript: app.showHymnsWithMelody('{$hymnID}')">Visa psalmer som kan sjungas med samma melodi</a>
-            <ul id="{$hymnID}_hymnsWithSameMelodyList" class="hidden inlineMenu">
+            <a id="{$divID}_showHymnsSameMelody" data-trans="samemelody" href="javascript: app.showHymnsWithMelody('{$divID}')">Visa psalmer som kan sjungas med samma melodi</a>
+            <ul id="{$divID}_hymnsWithSameMelodyList" class="hidden inlineMenu">
             </ul>
           </div>
         </xsl:if>
@@ -50,20 +48,20 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   
   <xsl:template match="melodies">
     <xsl:if test="string-length(melody/sheet) > 0">
-      <a data-trans="title=showmelody" class="iconFont rightAlign" href="javascript: toggleVisibility('{$melodyID}');" title="">E</a>
+      <a data-trans="title=showmelody" class="iconFont rightAlign" href="javascript: toggleVisibility('{$divID}_melodyDiv');" title="">E</a>
     </xsl:if>
     <xsl:if test="string-length(melody/file) > 0">
-      <a data-trans="title=downloadmelody" class="iconFont rightAlign" href="hymns/midi/{melody/file}.mid" title="">D</a>
-      <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$hymnID}');" title="">A</a>
+      <a id="{$divID}_downloadMelody" data-trans="title=downloadmelody" class="iconFont rightAlign" href="hymns/midi/{melody/file}.mid" title="">D</a>
+      <a data-trans="title=playpause" class="iconFont rightAlign" href="javascript: app.playPauseMelody('{$divID}');" title="">A</a>
     </xsl:if>
     <div class="inline rightAlign">
       <span data-trans="melody"></span>
-      <select id="{$hymnID}_melodySelector" class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$hymnID}')">
+      <select id="{$divID}_melodySelector" class="lessMarginTop hymnselect" onchange="javascript: app.changeMelody('{$divID}')">
         <xsl:for-each select="melody">
           <option value="{file}"><xsl:value-of select="id" /></option>
         </xsl:for-each>
       </select>
-      <audio id="{$hymnID}_audio">
+      <audio id="{$divID}_audio">
         <source src="hymns/ogg/{melody/file}.ogg" />
         <source src="hymns/mp3/{melody/file}.mp3" />
         <span data-trans="oldbrowser" />
@@ -103,25 +101,4 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:if test="string-length(year) > 0">(<xsl:value-of select="year" />)</xsl:if>
     <xsl:if test="position() != last()">, </xsl:if>
   </xsl:template>
-  
-  <!-- <xsl:template name="splitMelody">
-    <xsl:param name="inputString"></xsl:param>
-    <xsl:param name="firstString" select="substring-before($inputString, '_')" />
-    <xsl:param name="remainingString" select="substring-after($inputString, '_')" />
-    
-    <xsl:choose>
-      <xsl:when test="contains($inputString, '_')">        
-        <li><a href="javascript: app.searchHymn('{number($firstString)}')"><xsl:value-of select="number($firstString)" /></a></li>
-
-        <xsl:if test="$remainingString != ''">
-          <xsl:call-template name="splitMelody">
-            <xsl:with-param name="inputString" select="$remainingString" />
-          </xsl:call-template>
-        </xsl:if>
-      </xsl:when>
-      <xsl:otherwise>
-        <li><a href="javascript: app.searchHymn('{number($inputString)}')"><xsl:value-of select="number($inputString)" /></a></li>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template> -->
 </xsl:stylesheet>
