@@ -34,10 +34,10 @@ app = new function Application() {
     var melodyId = document.getElementById(id + "_melodySelector").value;
     var downloadLink = document.getElementById(id + "_downloadMelody");
     
-    if (supports_audio())
+    if (supportsAudio())
     {
         audio.pause()
-        var ext = get_audio_extension();
+        var ext = getAudioExtension();
         audio.src= "hymns/" + ext + "/" + melodyId + "." + ext
         audio.load()
     }
@@ -77,7 +77,7 @@ app = new function Application() {
     Returns the audio extension (e.g. "ogg")
     to use.
   */
-  function get_audio_extension() {
+  function getAudioExtension() {
     var oracle = document.createElement("audio");
     if(oracle.canPlayType && !!oracle.canPlayType('audio/ogg; codecs="vorbis"'))
       return "ogg";

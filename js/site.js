@@ -91,12 +91,12 @@ function toggleVisibility(id)
 function loadNews()
 {
   //We use hashtags to filter by language
-  var lang_regex = new RegExp("#" + jsI18n.locale, "m");
+  var langRegex = new RegExp("#" + jsI18n.locale, "m");
   getTwitters('news', {
-      id: Config.news_account,
+      id: Config.newsAccount,
       count: 3,
       enableLinks: false,
-      filter: lang_regex,
+      filter: langRegex,
       ignoreReplies: true,
       clearContents: true,
       template: "<span class=\"date\">%time%</span><span class\"content\">%text%</span>"
@@ -246,7 +246,7 @@ var addEvent = (function( window, document ) {
 /*
   Check if the browser supports the audio-tag
 */
-function supports_audio()
+function supportsAudio()
 {
   return !!document.createElement("audio").pause;
 }
