@@ -53,7 +53,7 @@ app = new function Application() {
   {    
     var searchResults = document.getElementById("searchresults");
     if (searchResults)
-      while (searchResults.hasChildNodes())
+      while (searchResults.childNodes.length > 0)
         removeElement(searchResults.childNodes[0].id);
       
     processSearchResults();
