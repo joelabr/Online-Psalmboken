@@ -3,7 +3,7 @@
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:variable name="divID" select="generate-id(/)" />
+  <xsl:variable name="divID" select="generate-id(hymn)" />
   
   <xsl:template match="/">
     <div id="{$divID}" class="box">
@@ -64,7 +64,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <audio id="{$divID}_audio">
         <source src="hymns/ogg/{melody/file}.ogg" />
         <source src="hymns/mp3/{melody/file}.mp3" />
-        <span data-trans="oldbrowser" />
+        <!--<span data-trans="oldbrowser" />-->
       </audio>
     </div>
   </xsl:template>

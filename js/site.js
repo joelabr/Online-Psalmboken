@@ -133,12 +133,12 @@ function showElement(id, show)
 */
 function removeElement(id)
 {
-  var id  = document.getElementById(id);
+  var element  = document.getElementById(id);
   
   if (id)
   {
-    var pid = id.parentNode;
-    pid.removeChild(id);
+    var pid = element.parentNode;
+    pid.removeChild(element);
   }
 }
 

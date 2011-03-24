@@ -8,7 +8,6 @@
 app = new function Application() {
   var hymnBook = null
   var curHymnBook = "";
-  var resultDivs  = new Array()
   var searchMethods = new Array()
  
   //Adds a search method. Associates the given
@@ -20,8 +19,6 @@ app = new function Application() {
   //Adds a search result to the page 
   function addSearchResult(element)
   {
-    resultDivs.push(element)
-
     // Insert what we are searching for "Search results for: 'XXX'"    
     var test = document.getElementById(element.id + "_searchquery");
     
@@ -56,19 +53,8 @@ app = new function Application() {
   {    
     var searchResults = document.getElementById("searchresults");
     if (searchResults)
-    {
-      var div  = searchResults.getElementsByTagName("div")[0];
-      var sibling = div.nextSibling;
-      
-      while (resultDivs.length > 0)
-      {
-        this.removeSearchResult(div.id);
-        div = sibling;
-        
-        if (sibling != null)
-          sibling = div.nextSibling;
-      }
-    }
+      while (searchResults.hasChildNodes())
+        removeElement(searchResults.childNodes[0].id);
       
     processSearchResults();
   }
@@ -125,8 +111,8 @@ app = new function Application() {
       }
       else
       {
-        searchResults.insertBefore(data, searchResults.childNodes[1])
-        addSearchResult(searchResults.childNodes[1])
+        searchResults.insertBefore(data, searchResults.childNodes[0])
+        addSearchResult(searchResults.childNodes[0])
       }
     }
     
@@ -137,17 +123,19 @@ app = new function Application() {
 
   function processSearchResults()
   {
-    if (resultDivs.length > 1)
-      for (var i = 0; i < resultDivs.length - 1; i++)
-        showElement(resultDivs[i].id + "_hymnDiv", false);
+    var searchResults = document.getElementById("searchresults");
     
-    if (resultDivs.length > 5)
+    if (searchResults.childNodes.length > 1)
+      for (var i = 1; i < searchResults.childNodes.length; i++)
+        showElement(searchResults.childNodes[i].id + "_hymnDiv", false);
+    
+    if (searchResults.childNodes.length > 5)
     {
-      var temp = resultDivs.shift()
-      removeElement(temp.id)
+      var temp = searchResults.childNodes[searchResults.childNodes.length - 1]; // Must use this method instead of searchResults.lastChild to make it work in IE
+      removeElement(temp.id);
     }
-    
-    if (resultDivs.length == 0)
+
+    if (searchResults.childNodes.length == 0)
     {
       showElement("searchresults_p", false)
       showElement("searchresults", false)
@@ -160,12 +148,6 @@ app = new function Application() {
     if (id)
     {
       removeElement(id);
-      
-      for (var i = 0; i < resultDivs.length; i++)
-      {
-        if (resultDivs[i].id  === id)
-          resultDivs.splice(i, 1)
-      }
       
       processSearchResults()  
     }
