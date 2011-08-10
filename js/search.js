@@ -19,6 +19,14 @@ app = new function Application() {
   //Adds a search result to the page 
   function addSearchResult(element)
   {
+    // Add an event-listener to Audio-tag in search result to reset playback when it has ended.
+    var audio = document.getElementById(element.id + "_audio");
+
+    if (audio)
+      addEvent(audio, "ended", function()
+          {
+            resetPlaybackTime(audio.id);
+          });
     // Insert what we are searching for "Search results for: 'XXX'"    
     var test = document.getElementById(element.id + "_searchquery");
     
@@ -90,11 +98,12 @@ app = new function Application() {
     to be played is given as the first parameter.
   */ 
   this.playPauseMelody = function(id) {
-    audio = document.getElementById(id + "_audio")
+    audio = document.getElementById(id + "_audio");
+    
     if(audio.paused)
-      audio.play()
+      audio.play();
     else
-      audio.pause()
+      audio.pause();
   }
 
   //Presents the given data to the user

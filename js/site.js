@@ -250,3 +250,15 @@ function supportsAudio()
 {
   return !!document.createElement("audio").pause;
 }
+
+// Media functions
+/*
+ *  Resets current playback time to start time for given Audio/Video-element
+ */
+function resetPlaybackTime(id)
+{
+  var media = document.getElementById(id);
+
+  media.pause();
+  media.currentTime = media.startTime;
+}
