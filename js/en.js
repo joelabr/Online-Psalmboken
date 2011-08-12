@@ -34,8 +34,7 @@ var translations =
   "searchtip5":"Search by content: <em>Tryggare kan ingen vara</em>",
   "aboutcookies":"About cookies",
   "cookiestext":"<p>The Online-Hymnbook uses cookies in order to store " +
-  "your language settings, as well as your most recently visited page." +
-  "</p> Cookies are small textfiles that are stored locally on your " +
+  "your language settings.</p> Cookies are small textfiles that are stored locally on your " +
   "computer. You can turn off cookies in your browser if you do not want " +
   "the Online-Hymnbook to store this kind of information. Please note " +
   "that the Online-Hymnbook might not work as expected if cookies are " +

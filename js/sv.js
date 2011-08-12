@@ -32,10 +32,9 @@ var translations =
   "searchtip5":"Sök efter innehåll: <em>än Guds lilla</em>",
   "aboutcookies": "Om kakor",
   "cookiestext":"<p>Online-Psalmboken använder s.k. kakor för att lagra " +
-  "ditt språkval och senast besökta sida.</p> Kakor är små textfiler som " +
-  "lagras lokalt på din dator. Du kan slå av kakor i din webbläsare om du "+
-  "ogillar att nämnda inställningar lagras. Detta kan dock resultera i att"+
-  " Online-Psalmboken inte fungerar som förväntat.",
+  "ditt språkval.</p> Kakor är små textfiler som lagras lokalt på din dator." +
+  " Du kan slå av kakor i din webbläsare om du ogillar att nämnda inställningar" + 
+  " lagras. Detta kan dock resultera i att Online-Psalmboken inte fungerar som förväntat.",
   "about":"Om",
   "abouttext":"Online-psalmboken är ett sökverktyg för psalmer. Du kan " +
     "söka på psalmnummer, psalminnehåll, författare och psalmkategorier. " +
