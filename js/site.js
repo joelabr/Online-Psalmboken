@@ -1,6 +1,16 @@
 /*
   Page-functions
 */
+function checkCurrentURL()
+{
+  var page = window.location.hash.substring(1);
+
+  if (page.length > 0)
+    changePage(page);
+  else
+    changePage("frontpage.html");
+}
+
 function changePage(page)
 {
   if (page)
@@ -12,7 +22,6 @@ function changePage(page)
       id.innerHTML  = html;
       
       jsI18n.processPage();
-      createCookie("page", page, 0.42);
     
       if(page == "frontpage.html")
         loadNews();
@@ -38,13 +47,30 @@ function changeLocale(locale)
 */
 function initPage()
 {
-  translatePage();
-  
-  var page  = readCookie("page");
-  if (page)
-    changePage(page);
+  // 
+  if (ieAgent.isIE() && ieAgent.getVersion() < "8.0")
+  {
+    var menuAnchors = document.getElementById("navMenu").getElementsByTagName("a");
+    var length = menuAnchors.length;
+
+    for (var i = 0; i < length; i++)
+      if (menuAnchors[i].href.indexOf("#") > -1)
+        addEvent(menuAnchors[i], "click", function()
+            {
+              window.location.href = window.event.srcElement.href;
+              checkCurrentURL();
+            });
+  }
   else
-    changePage("frontpage.html");
+  {
+    addEvent(window, "hashchange", function()
+            {
+              checkCurrentURL();
+            });
+  }
+
+  checkCurrentURL();
+  translatePage();
 }
 
 function translatePage()
@@ -64,7 +90,7 @@ function translatePage()
 */
 /*  
   Toggle visibility of an element
-    Arguments:
+  Arguments:
         [0] - Element ID
 */
 function toggleVisibility(id)
@@ -250,6 +276,22 @@ function supportsAudio()
 {
   return !!document.createElement("audio").pause;
 }
+
+/*
+ * Checks whether the browser is IE or not.
+ */
+var ieAgent = 
+{
+  isIE : function()
+  {
+    return navigator.appName == "Microsoft Internet Explorer" &&
+                                /MSIE /.test(navigator.userAgent)
+  },
+  getVersion : function()
+  {
+    return /MSIE ([^;]+)/.exec(navigator.userAgent)[1];
+  }
+};
 
 // Media functions
 /*
