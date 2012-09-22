@@ -19,14 +19,6 @@ app = new function Application() {
   //Adds a search result to the page 
   function addSearchResult(element)
   {
-    // Add an event-listener to Audio-tag in search result to reset playback when it has ended.
-    var audio = document.getElementById(element.id + "_audio");
-
-    if (audio)
-      addEvent(audio, "ended", function()
-          {
-            resetPlaybackTime(audio.id);
-          });
     // Insert what we are searching for "Search results for: 'XXX'"    
     var test = document.getElementById(element.id + "_searchquery");
     
@@ -38,17 +30,8 @@ app = new function Application() {
   
   //Changes melody
   this.changeMelody = function(id) {
-    var audio = document.getElementById(id + "_audio")
     var melodyId = document.getElementById(id + "_melodySelector").value;
     var downloadLink = document.getElementById(id + "_downloadMelody");
-    
-    if (supportsAudio())
-    {
-        audio.pause()
-        var ext = getAudioExtension();
-        audio.src= "hymns/" + ext + "/" + melodyId + "." + ext
-        audio.load()
-    }
     
     // Change download link
     downloadLink.href = "hymns/midi/" + melodyId + ".mid";
@@ -71,6 +54,15 @@ app = new function Application() {
     Initializes the app.
   */
   this.init = function() {
+    // Add an event-listener to Audio-tag in search result to reset playback when it has ended.
+    var audio = document.getElementById("audioplayer");
+
+    if (audio) {
+      addEvent(audio, "ended", function() {
+        resetPlaybackTime(audio.id);
+      });
+    }
+
     //Add search methods (order is significant!)
     addSearchMethod(/^[123456789]\d*$/, "searchByNumber")
     addSearchMethod(/^category:/, "searchByCategory")
@@ -98,7 +90,18 @@ app = new function Application() {
     to be played is given as the first parameter.
   */ 
   this.playPauseMelody = function(id) {
-    audio = document.getElementById(id + "_audio");
+    var audio = document.getElementById("audioplayer"),
+        melodyId = document.getElementById(id + "_melodySelector").value,
+        ext = getAudioExtension(),
+        melodyPath = "hymns/" + ext + "/" + melodyId + "." + ext;
+
+    if (supportsAudio() && audio.src !== melodyPath)
+    {
+        audio.pause()
+        audio.src= melodyPath
+        audio.load()
+    }
+    
     
     if(audio.paused)
       audio.play();

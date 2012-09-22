@@ -61,11 +61,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <option value="{file}"><xsl:value-of select="id" /></option>
         </xsl:for-each>
       </select>
-      <audio id="{$divID}_audio">
-        <source src="hymns/ogg/{melody/file}.ogg" />
-        <source src="hymns/mp3/{melody/file}.mp3" />
-        <!--<span data-trans="oldbrowser" />-->
-      </audio>
     </div>
   </xsl:template>
   
