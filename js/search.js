@@ -42,10 +42,16 @@ app = new function Application() {
   
   this.clearSearchResults = function()
   {    
-    var searchResults = document.getElementById("searchresults");
+    var searchResults = document.getElementById("searchresults"),
+        audio = document.getElementById("audioplayer");
+
     if (searchResults)
+    {
       while (searchResults.childNodes.length > 0)
         removeElement(searchResults.childNodes[0].id);
+
+      audio.pause();
+    }
       
     processSearchResults();
   }
