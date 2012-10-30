@@ -3,7 +3,7 @@
 */
 var translations =
 {
-  "title":"The Online-Hymnbook",
+  "title":"The Online Hymnbook",
   "frontpage":"Frontpage",
   "searchhymn":"Search hymn",
   "welcometext":"Welcome to the Online-Hymnbook! Here you will find texts, and possibly melodies, for different hymns from different hymnbooks. We hope you will find what you are looking for!",
